@@ -366,7 +366,14 @@ var Splash = injectIntl(React.createClass({
                             ] : [
                                 <Activity key="activity" items={this.state.activity} />
                             ]}
-                            <News items={this.state.news} messages={messages} />
+                            <Box className="fools"
+                                 title="Scratch Cat goes on Vacation">
+                                <img src="/images/vacation.png" />
+                                <div className="button-row">
+                                    <a className="button" href="/tbd">Where is Scratch Cat?</a>
+                                    <a className="button" href="/users/scratchcat/">Scratch Cat's Profile</a>
+                                </div>
+                            </Box>
                         </div>
                     ] : [
                         <Intro projectCount={this.state.projectCount} messages={messages} key="intro"/>
