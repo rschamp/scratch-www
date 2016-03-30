@@ -11,7 +11,7 @@ var SubNavigation = React.createClass({
     type: 'SubNavigation',
     render: function () {
         var classes = classNames(
-            'sub-nav',
+            'sub-navigation',
             this.props.className
         );
         return (

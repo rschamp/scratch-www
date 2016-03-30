@@ -6,7 +6,7 @@ html,
 body {
     display: block;
     margin: 0;
-    background-color: darken($ui-blue, 8%);
+    background-color: $background-color;
     padding: 0;
     color: $type-gray;
     font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;

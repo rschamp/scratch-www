@@ -15,6 +15,7 @@ var Carousel = require('../../components/carousel/carousel.jsx');
 var Intro = require('../../components/intro/intro.jsx');
 var Modal = require('../../components/modal/modal.jsx');
 var News = require('../../components/news/news.jsx');
+var SubNavigation = require('../../components/subnavigation/subnavigation.jsx');
 var Welcome = require('../../components/welcome/welcome.jsx');
 
 require('./splash.scss');
@@ -369,10 +370,14 @@ var Splash = injectIntl(React.createClass({
                             <Box className="fools"
                                  title="Scratch Cat goes on Vacation">
                                 <img src="/images/vacation.png" />
-                                <div className="button-row">
-                                    <a className="button" href="/tbd">Where is Scratch Cat?</a>
-                                    <a className="button" href="/users/scratchcat/">Scratch Cat's Profile</a>
-                                </div>
+                                <SubNavigation>
+                                    <a href="/discuss/topic/191220/">
+                                        <li>Where is Scratch Cat?</li>
+                                    </a>
+                                    <a href="/users/scratchcat/">
+                                        <li>Scratch Cat's Profile</li>
+                                    </a>
+                                </SubNavigation>
                             </Box>
                         </div>
                     ] : [

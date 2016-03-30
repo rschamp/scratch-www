@@ -30,40 +30,19 @@
         }
 
         .fools {
+            text-align: center;
+
+            img {
+                margin: 2em 0 1em;
+            }
+
             .box-content {
-                background-color: $ui-dark-aqua;
+                background-color: darken($ui-aqua, 8);
                 padding: 0;
             }
 
-            .button-row {
-                padding: .85em .25em;
-                text-align: center;
-
-                &,
-                .button {
-                    background-color: $ui-aqua;
-                }
-            }
-
-
-            .button {
-                margin-right: 1em;
-                border: 1px solid $ui-dark-aqua;
-                border-radius: 2.25em;
-                box-shadow: none;
-                height: 1.5em;
-                line-height: 1.55em;
-                color: $ui-white;
-                font-weight: normal;
-
-                &:hover {
-                    box-shadow: none;
-                    text-decoration: none;
-                }
-
-                &:last-child {
-                    margin-right: 0;
-                }
+            .sub-navigation {
+                background-color: $ui-aqua;
             }
         }
     }
