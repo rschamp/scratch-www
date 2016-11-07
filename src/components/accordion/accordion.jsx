@@ -21,13 +21,14 @@ var Accordion = React.createClass({
     },
     render: function () {
         var classes = classNames({
-            'content': true,
-            'open': this.state.isOpen
+            content: true,
+            open: this.state.isOpen
         });
         return (
             <div className="accordion">
                 <this.props.titleAs className="title"
-                     onClick={this.toggleContent}>
+                    onClick={this.toggleContent}
+                >
                     {this.props.title}
                 </this.props.titleAs>
                 <this.props.contentAs className={classes}>

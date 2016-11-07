@@ -20,7 +20,7 @@ var Privacypolicy = React.createClass({
                              to explain what information we collect, how we use it,
                              and what we're doing to keep it safe. If you have any
                              questions regarding this privacy policy, you can{' '}
-                             <a href="/contact-us">contact us</a>.
+                            <a href="/contact-us">contact us</a>.
                         </p>
                         <p className="callout">
                             Please do not share personal contact information, such as
@@ -34,7 +34,7 @@ var Privacypolicy = React.createClass({
                     </section>
                     <section id="collection">
                         <dl>
-                            <span className="nav-spacer"></span>
+                            <span className="nav-spacer" />
                             <h3>What information does the Scratch Team collect about me?</h3>
                             <dt>Account Information: </dt>
                             <dd>
@@ -88,7 +88,7 @@ var Privacypolicy = React.createClass({
                         </dl>
                     </section>
                     <section id="usage">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>How does the Scratch Team use my information?</h3>
                         <ul>
                             <li>
@@ -114,7 +114,7 @@ var Privacypolicy = React.createClass({
                             <li>
                                 Parents and guardians who register their under-13 year olds for
                                  Scratch may also receive additional updates from the{' '}
-                                 <a href="http://www.scratchfoundation.org/">Scratch Foundation</a>,
+                                <a href="http://www.scratchfoundation.org/">Scratch Foundation</a>,
                                  a non-profit that supports Scratch educational initiatives.
                                  The Scratch Foundation will never sell or share your email
                                  address without your permission. You can unsubscribe from these
@@ -133,7 +133,7 @@ var Privacypolicy = React.createClass({
                                  how people learn with Scratch. The results of this research are
                                  shared with educators and researchers through conferences,
                                  journals, and other publications. You can find out more on our{' '}
-                                 <a href="/info/research">Research page</a>.
+                                <a href="/info/research">Research page</a>.
                             </li>
                             <li>
                                 We may disclose some of the information we collect to third-party
@@ -159,13 +159,13 @@ var Privacypolicy = React.createClass({
                         </ul>
                     </section>
                     <section id="update">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>How can I update my personal information?</h3>
                         <p>
                             You can update your password, email address, and country through
                              the <a href="/account/password_change">Account Settings</a> page.
                              You can also reset your password through the{' '}
-                              <a href="/account/password_reset">Account Reset</a>{' '}
+                            <a href="/account/password_reset">Account Reset</a>{' '}
                              page. You cannot change your username, but you can make a new
                              account and manually copy your projects to the new account.
                         </p>
@@ -177,7 +177,7 @@ var Privacypolicy = React.createClass({
                         </p>
                     </section>
                     <section id="protection">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>How does the Scratch Team protect my information?</h3>
                         <p>
                             The Scratch Team has in place physical and electronic procedures
@@ -191,7 +191,7 @@ var Privacypolicy = React.createClass({
                         </p>
                     </section>
                     <section id="changes">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>Notifications of Changes to the Privacy Policy</h3>
                         <p>
                             We review our security measures and Privacy Policy on a periodic

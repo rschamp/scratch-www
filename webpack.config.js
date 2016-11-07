@@ -7,9 +7,11 @@ var path = require('path');
 var webpack = require('webpack');
 
 var routes = require('./src/routes.json');
+var routesDev = require('./src/routes-dev.json');
+var templateConfig = require('./src/template-config.js');
 
 if (process.env.NODE_ENV !== 'production') {
-    routes = routes.concat(require('./src/routes-dev.json'));
+    routes = routes.concat(routesDev);
 }
 
 var VersionPlugin = function (options) {
@@ -19,22 +21,22 @@ var VersionPlugin = function (options) {
 VersionPlugin.prototype.apply = function (compiler) {
     var addVersion = function (compilation, versionId, callback) {
         compilation.assets['version.txt'] = {
-            source: function () {return versionId;},
-            size: function () {return versionId.length;}
+            source: function () {
+                return versionId;
+            },
+            size: function () {
+                return versionId.length;
+            }
         };
         callback();
     };
     var plugin = this;
     compiler.plugin('emit', function (compilation, callback) {
-        var sha = process.env.WWW_VERSION;
-        if (!sha) {
-            gitsha(plugin.options, function (err, sha) {
-                if (err) return callback(err);
-                return addVersion(compilation, sha, callback);
-            });
-        } else {
+        if (process.env.WWW_VERSION) return addVersion(compilation, process.env.WWW_VERSION, callback);
+        gitsha(plugin.options, function (err, sha) {
+            if (err) return callback(err);
             return addVersion(compilation, sha, callback);
-        }
+        });
     });
 };
 
@@ -71,7 +73,7 @@ module.exports = {
                 test: /\.jsx$/,
                 loader: 'babel',
                 query: {
-                    presets: ['es2015','react']
+                    presets: ['es2015', 'react']
                 },
                 include: path.resolve(__dirname, 'src')
             },
@@ -103,9 +105,11 @@ module.exports = {
     plugins: [
         new VersionPlugin({length: 5})
     ].concat(routes
-        .filter(function (route) {return !route.redirect;})
+        .filter(function (route) {
+            return !route.redirect;
+        })
         .map(function (route) {
-            return new HtmlWebpackPlugin(defaults({}, require('./src/template-config.js'), {
+            return new HtmlWebpackPlugin(defaults({}, templateConfig, {
                 title: route.title,
                 filename: route.name + '.html',
                 route: route
@@ -126,7 +130,7 @@ module.exports = {
             'process.env.SENTRY_DSN': '"' + (process.env.SENTRY_DSN || '') + '"',
             'process.env.API_HOST': '"' + (process.env.API_HOST || 'https://api.scratch.mit.edu') + '"',
             'process.env.SMARTY_STREETS_API_KEY': '"' + (process.env.SMARTY_STREETS_API_KEY || '') + '"',
-            'process.env.SCRATCH_ENV': '"'+ (process.env.SCRATCH_ENV || 'development') + '"'
+            'process.env.SCRATCH_ENV': '"' + (process.env.SCRATCH_ENV || 'development') + '"'
         }),
         new webpack.optimize.CommonsChunkPlugin('common', 'js/common.bundle.js'),
         new webpack.optimize.OccurenceOrderPlugin()

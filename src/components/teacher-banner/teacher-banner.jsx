@@ -43,7 +43,7 @@ var TeacherBanner = React.createClass({
                                     {this.props.messages['teacherbanner.subgreeting']}
                                 </p>
                             ] : []
-                        ): []}
+                        ) : []}
                     </div>
                     <FlexRow className="quick-links">
                         {this.props.session.status === sessionActions.Status.FETCHED ? (
@@ -64,7 +64,7 @@ var TeacherBanner = React.createClass({
                                     </Button>
                                 </a>
                             ] : []
-                        ): []}
+                        ) : []}
                     </FlexRow>
                 </FlexRow>
             </TitleBanner>

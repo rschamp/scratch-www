@@ -13,16 +13,16 @@ var Microworld = React.createClass({
         microworldData: React.PropTypes.node.isRequired
     },
     markVideoOpen: function (key) {
-        {/* When a video is clicked, mark it as an open video, so the video Modal will open.
-        Key is the number of the video, so distinguish between different videos on the page */}
+        { /* When a video is clicked, mark it as an open video, so the video Modal will open.
+        Key is the number of the video, so distinguish between different videos on the page */ }
 
         var videoOpenArr = this.state.videoOpen;
         videoOpenArr[key] = true;
         this.setState({videoOpen: videoOpenArr});
     },
     markVideoClosed: function (key) {
-        {/* When a video's x is clicked, mark it as closed, so the video Modal will disappear.
-        Key is the number of the video, so distinguish between different videos on the page */}
+        { /* When a video's x is clicked, mark it as closed, so the video Modal will disappear.
+        Key is the number of the video, so distinguish between different videos on the page */ }
         var videoOpenArr = this.state.videoOpen;
         videoOpenArr[key] = false;
         this.setState({videoOpen: videoOpenArr});
@@ -58,17 +58,18 @@ var Microworld = React.createClass({
         return (
             <div>
                 <div className="video">
-                    <div className="play-button" onClick={this.markVideoOpen.bind(this, key)}>
-                    </div>
+                    <div className="play-button" onClick={this.markVideoOpen.bind(this, key)} />
                     <img src={video.image} />
                 </div>
                 <Modal
                     className="video-modal"
                     isOpen={this.state.videoOpen[key]}
                     onRequestClose={this.markVideoClosed.bind(this, key)}
-                    style={{content:frameProps}}>
+                    style={{content: frameProps}}
+                >
                     <iframe src={video.link} width="560" height="315" frameBorder="0"
-                            webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        webkitallowfullscreen mozallowfullscreen allowFullScreen
+                    />
                 </Modal>
             </div>
         );
@@ -83,26 +84,26 @@ var Microworld = React.createClass({
             <div className="editor section">
                 <h1 className="sectionheader">Start Creating!</h1>
                 <iframe src={'//scratch.mit.edu/projects/embed-editor/' + projectId + '/?isMicroworld=true'}
-                        frameBorder="0"> </iframe>
+                    frameBorder="0"
+                />
                 {this.renderTips()}
             </div>
         );
     },
     renderTips: function () {
-        var tips =  this.props.microworldData.tips;
+        var tips = this.props.microworldData.tips;
         if (!tips || tips.length <= 0) {
             return null;
         }
 
         return (
             <div className="box nestedcarousel">
-                <div className="box-header">
-                </div>
+                <div className="box-header" />
                 <div className="box-content">
-                    <NestedCarousel items={tips} settings={{slidesToShow:1,slidesToScroll:1}}/>
+                    <NestedCarousel items={tips} settings={{slidesToShow: 1, slidesToScroll: 1}} />
                 </div>
             </div>
-            );
+        );
     },
     renderStarterProject: function () {
         var starterProjects = this.props.microworldData.starter_projects;
@@ -115,7 +116,8 @@ var Microworld = React.createClass({
                 <h1 className="sectionheader">Check out ideas for more projects</h1>
                 <Box
                     title="More Starter Projects"
-                    key="starter_projects">
+                    key="starter_projects"
+                >
                     <Carousel items={starterProjects} />
                 </Box>
             </div>
@@ -135,18 +137,20 @@ var Microworld = React.createClass({
             rows.push(
                 <Box
                     title="Featured Community Projects"
-                    key="community_featured_projects">
+                    key="community_featured_projects"
+                >
                     <Carousel items={featured} />
-               </Box>
+                </Box>
             );
         }
         if (all && all.length > 0) {
             rows.push(
                 <Box
-                     title="All Community Projects"
-                     key="community_all_projects">
-                     <Carousel items={all} />
-               </Box>
+                    title="All Community Projects"
+                    key="community_all_projects"
+                >
+                    <Carousel items={all} />
+                </Box>
             );
         }
         if (rows.length <= 0) {
@@ -165,10 +169,10 @@ var Microworld = React.createClass({
         }
 
         return (
-        <div className="forum">
-            <h1 className="sectionheader">Chat with others!</h1>
-            <img src="/images/forum-image.png"/>
-        </div>
+            <div className="forum">
+                <h1 className="sectionheader">Chat with others!</h1>
+                <img src="/images/forum-image.png" />
+            </div>
         );
     },
     renderDesignStudio: function () {
@@ -185,19 +189,23 @@ var Microworld = React.createClass({
                     <h1 className="sectionheader">Join our Design Challenge!</h1>
                     <div className="design-studio">
                         <iframe src={'https://scratch.mit.edu/projects/' + designChallenge.project_id +
-                                     '/#fullscreen'} frameBorder="0"> </iframe>
+                                     '/#fullscreen'} frameBorder="0"
+                        />
                     </div>
                     <div className="design-studio-projects">
                         <Box title="Examples"
-                             key="scratch_design_studio"
-                             moreTitle={studioHref ? 'Visit the studio' : null}
-                             moreHref={studioHref ? studioHref : null}>
+                            key="scratch_design_studio"
+                            moreTitle={studioHref ? 'Visit the studio' : null}
+                            moreHref={studioHref ? studioHref : null}
+                        >
                             {/* The two carousels are used to show two rows of projects, one above the
                                 other. This should be probably be changed, to allow better scrolling. */}
-                            <Carousel settings={{slidesToShow:2,slidesToScroll:2}}
-                                      items={this.props.microworldData.design_challenge.studio1} />
-                            <Carousel settings={{slidesToShow:2,slidesToScroll:2}}
-                                      items={this.props.microworldData.design_challenge.studio2} />
+                            <Carousel settings={{slidesToShow: 2, slidesToScroll: 2}}
+                                items={this.props.microworldData.design_challenge.studio1}
+                            />
+                            <Carousel settings={{slidesToShow: 2, slidesToScroll: 2}}
+                                items={this.props.microworldData.design_challenge.studio2}
+                            />
                         </Box>
                     </div>
                 </div>
@@ -210,10 +218,12 @@ var Microworld = React.createClass({
                         title="design Challenge Projects"
                         key="scratch_design_studio"
                         moreTitle={studioHref ? 'Visit the studio' : null}
-                        moreHref={studioHref ? studioHref : null}>
+                        moreHref={studioHref ? studioHref : null}
+                    >
                         <Carousel items={this.props.microworldData.design_challenge.studio1.concat(
-                            this.props.microworldData.design_challenge.studio2)} />
-                   </Box>
+                            this.props.microworldData.design_challenge.studio2)}
+                        />
+                    </Box>
                 </div>
             );
         }

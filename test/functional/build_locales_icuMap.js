@@ -5,12 +5,12 @@ var buildLocales = require('../../bin/lib/locale-compare');
 
 tap.test('buildIcuMap', function (t) {
     var ids1 = {
-        'first.test1' : 'We know where we\'re going, but we don\'t know where we\'ve been',
-        'first.test2' : 'You may find yourself living in a shotgun shack'
+        'first.test1': 'We know where we\'re going, but we don\'t know where we\'ve been',
+        'first.test2': 'You may find yourself living in a shotgun shack'
     };
     var ids2 = {
-        'second.test1' : 'We know where we\'re going, but we don\'t know where we\'ve been',
-        'second.test2' : 'Gadji beri bimba clandridi'
+        'second.test1': 'We know where we\'re going, but we don\'t know where we\'ve been',
+        'second.test2': 'Gadji beri bimba clandridi'
     };
 
     var testicuMap = buildLocales.icuToIdMap('first', ids1);

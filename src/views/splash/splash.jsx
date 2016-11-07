@@ -86,8 +86,8 @@ var Splash = injectIntl(React.createClass({
             this.hideEmailConfirmationModal();
         } else {
             var data = JSON.parse(e.data);
-            if (data['action'] === 'leave-page') {
-                window.location.href = data['uri'];
+            if (data.action === 'leave-page') {
+                window.location.href = data.uri;
             }
         }
     },
@@ -183,7 +183,7 @@ var Splash = injectIntl(React.createClass({
         if (!this.props.session.session.user || !this.props.session.session.flags.show_welcome) return false;
         return (
             new Date(this.props.session.session.user.dateJoined) >
-            new Date(new Date - 2*7*24*60*60*1000) // Two weeks ago
+            new Date(new Date() - 2 * 7 * 24 * 60 * 60 * 1000) // Two weeks ago
         );
     },
     shouldShowEmailConfirmation: function () {
@@ -196,15 +196,18 @@ var Splash = injectIntl(React.createClass({
 
         var rows = [
             <Box
-                    title={formatMessage({id: 'splash.featuredProjects'})}
-                    key="community_featured_projects">
+                title={formatMessage({id: 'splash.featuredProjects'})}
+                key="community_featured_projects"
+            >
                 <Carousel items={this.state.featuredGlobal.community_featured_projects} />
             </Box>,
             <Box
-                    title={formatMessage({id: 'splash.featuredStudios'})}
-                    key="community_featured_studios">
+                title={formatMessage({id: 'splash.featuredStudios'})}
+                key="community_featured_studios"
+            >
                 <Carousel items={this.state.featuredGlobal.community_featured_studios}
-                          settings={{slidesToShow: 4, slidesToScroll: 4, lazyLoad: false}} />
+                    settings={{slidesToShow: 4, slidesToScroll: 4, lazyLoad: false}}
+                />
             </Box>
         ];
 
@@ -213,12 +216,13 @@ var Splash = injectIntl(React.createClass({
 
             rows.push(
                 <Box
-                        key="curator_top_projects"
-                        title={
+                    key="curator_top_projects"
+                    title={
                             formatMessage({id: 'splash.projectsCuratedBy'}) + ' ' +
                             this.state.featuredGlobal.curator_top_projects[0].curator_name}
-                        moreTitle={formatMessage({id: 'general.learnMore'})}
-                        moreHref="/studios/386359/">
+                    moreTitle={formatMessage({id: 'general.learnMore'})}
+                    moreHref="/studios/386359/"
+                >
 
                     <Carousel items={this.state.featuredGlobal.curator_top_projects} />
                 </Box>
@@ -230,12 +234,13 @@ var Splash = injectIntl(React.createClass({
 
             rows.push(
                 <Box
-                        key="scratch_design_studio"
-                        title={
+                    key="scratch_design_studio"
+                    title={
                             formatMessage({id: 'splash.scratchDesignStudioTitle'})
                             + ' - ' + this.state.featuredGlobal.scratch_design_studio[0].gallery_title}
-                        moreTitle={formatMessage({id: 'splash.visitTheStudio'})}
-                        moreHref={'/studios/' + this.state.featuredGlobal.scratch_design_studio[0].gallery_id + '/'}>
+                    moreTitle={formatMessage({id: 'splash.visitTheStudio'})}
+                    moreHref={'/studios/' + this.state.featuredGlobal.scratch_design_studio[0].gallery_id + '/'}
+                >
 
                     <Carousel items={this.state.featuredGlobal.scratch_design_studio} />
                 </Box>
@@ -248,7 +253,8 @@ var Splash = injectIntl(React.createClass({
 
             rows.push(
                 <Box title={formatMessage({id: 'splash.recentlySharedProjects'})}
-                     key="community_newest_projects">
+                    key="community_newest_projects"
+                >
                     <Carousel items={this.state.featuredGlobal.community_newest_projects} />
                 </Box>
             );
@@ -259,7 +265,8 @@ var Splash = injectIntl(React.createClass({
 
             rows.push(
                 <Box title={formatMessage({id: 'splash.projectsByScratchersFollowing'})}
-                     key="custom_projects_by_following">
+                    key="custom_projects_by_following"
+                >
 
                     <Carousel items={this.state.featuredCustom.custom_projects_by_following} />
                 </Box>
@@ -270,7 +277,8 @@ var Splash = injectIntl(React.createClass({
 
             rows.push(
                 <Box title={formatMessage({id: 'splash.projectsLovedByScratchersFollowing'})}
-                     key="custom_projects_loved_by_following">
+                    key="custom_projects_loved_by_following"
+                >
 
                     <Carousel items={this.state.featuredCustom.custom_projects_loved_by_following} />
                 </Box>
@@ -281,8 +289,9 @@ var Splash = injectIntl(React.createClass({
             this.state.featuredCustom.custom_projects_in_studios_following.length > 0) {
 
             rows.push(
-                <Box title={formatMessage({id:'splash.projectsInStudiosFollowing'})}
-                     key="custom_projects_in_studios_following">
+                <Box title={formatMessage({id: 'splash.projectsInStudiosFollowing'})}
+                    key="custom_projects_in_studios_following"
+                >
 
                     <Carousel items={this.state.featuredCustom.custom_projects_in_studios_following} />
                 </Box>
@@ -291,16 +300,20 @@ var Splash = injectIntl(React.createClass({
 
         rows.push(
             <Box title={formatMessage({id: 'splash.communityRemixing'})}
-                 key="community_most_remixed_projects">
+                key="community_most_remixed_projects"
+            >
 
                 <Carousel items={shuffle(this.state.featuredGlobal.community_most_remixed_projects)}
-                          showRemixes={true} />
+                    showRemixes
+                />
             </Box>,
             <Box title={formatMessage({id: 'splash.communityLoving'})}
-                 key="community_most_loved_projects">
+                key="community_most_loved_projects"
+            >
 
                 <Carousel items={shuffle(this.state.featuredGlobal.community_most_loved_projects)}
-                          showLoves={true} />
+                    showLoves
+                />
             </Box>
         );
 
@@ -345,19 +358,22 @@ var Splash = injectIntl(React.createClass({
             <div className="splash">
                 {this.shouldShowEmailConfirmation() ? [
                     <DropdownBanner key="confirmedEmail"
-                            className="warning"
-                            onRequestDismiss={this.handleDismiss.bind(this, 'confirmed_email')}>
+                        className="warning"
+                        onRequestDismiss={this.handleDismiss.bind(this, 'confirmed_email')}
+                    >
                         <a href="#" onClick={this.showEmailConfirmationModal}>Confirm your email</a>
                         {' '}to enable sharing.{' '}
                         <a href="/info/faq/#accounts">Having trouble?</a>
                     </DropdownBanner>,
                     <Modal key="emailConfirmationModal"
-                           isOpen={this.state.emailConfirmationModalOpen}
-                           onRequestClose={this.hideEmailConfirmationModal}
-                           style={{content: emailConfirmationStyle}}>
+                        isOpen={this.state.emailConfirmationModalOpen}
+                        onRequestClose={this.hideEmailConfirmationModal}
+                        style={{content: emailConfirmationStyle}}
+                    >
                         <iframe ref="emailConfirmationiFrame"
-                                src="/accounts/email_resend_standalone/"
-                                {...omit(emailConfirmationStyle, 'padding')} />
+                            src="/accounts/email_resend_standalone/"
+                            {...omit(emailConfirmationStyle, 'padding')}
+                        />
                     </Modal>
                 ] : []}
                 {this.props.permissions.educator ? [
@@ -369,8 +385,9 @@ var Splash = injectIntl(React.createClass({
                             <div key="header" className="splash-header">
                                 {this.shouldShowWelcome() ? [
                                     <Welcome key="welcome"
-                                             onDismiss={this.handleDismiss.bind(this, 'welcome')}
-                                             messages={messages} />
+                                        onDismiss={this.handleDismiss.bind(this, 'welcome')}
+                                        messages={messages}
+                                    />
                                 ] : [
                                     <Activity key="activity" items={this.state.activity} />
                                 ]}
@@ -378,7 +395,7 @@ var Splash = injectIntl(React.createClass({
                             </div>
                         ] : [
                             <MediaQuery minWidth={frameless.desktop}>
-                                <Intro projectCount={this.state.projectCount} messages={messages} key="intro"/>
+                                <Intro projectCount={this.state.projectCount} messages={messages} key="intro" />
                             </MediaQuery>
                         ]) : []
                     }
@@ -407,8 +424,9 @@ var Splash = injectIntl(React.createClass({
                                     <div className="button-row">
                                         <span>Refresh row data:</span>
                                         <Button onClick={this.refreshHomepageCache}
-                                                className={homepageCacheState.status}
-                                                disabled={homepageCacheState.disabled}>
+                                            className={homepageCacheState.status}
+                                            disabled={homepageCacheState.disabled}
+                                        >
                                             <span>{homepageCacheState.content}</span>
                                         </Button>
                                     </div>

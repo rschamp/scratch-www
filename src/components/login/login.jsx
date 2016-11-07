@@ -37,11 +37,11 @@ var Login = React.createClass({
             <div className="login">
                 <Form onSubmit={this.handleSubmit}>
                     <label htmlFor="username" key="usernameLabel">
-                        <FormattedMessage id='general.username' />
+                        <FormattedMessage id="general.username" />
                     </label>
                     <Input type="text" ref="username" name="username" maxLength="30" key="usernameInput" required />
                     <label htmlFor="password" key="passwordLabel">
-                        <FormattedMessage id='general.password' />
+                        <FormattedMessage id="general.password" />
                     </label>
                     <Input type="password" ref="password" name="password" key="passwordInput" required />
                     {this.state.waiting ? [
@@ -50,11 +50,11 @@ var Login = React.createClass({
                         </Button>
                     ] : [
                         <Button className="submit-button white" type="submit" key="submitButton">
-                            <FormattedMessage id='general.signIn' />
+                            <FormattedMessage id="general.signIn" />
                         </Button>
                     ]}
                     <a className="right" href="/accounts/password_reset/" key="passwordResetLink">
-                        <FormattedMessage id='login.forgotPassword' />
+                        <FormattedMessage id="login.forgotPassword" />
                     </a>
                     {error}
                 </Form>

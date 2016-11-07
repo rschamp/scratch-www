@@ -18,50 +18,50 @@ var Wedo2 = React.createClass({
                             <div className="banner-text">
                                 <h2>LEGO WeDo 2.0 &amp; Scratch</h2>
                                 <p className="intro">
-                                    <FormattedMessage id='wedo2.intro' />
+                                    <FormattedMessage id="wedo2.intro" />
                                 </p>
                             </div>
                             <div className="banner-photo">
                                 <img src="/images/wedo/wedo-milo.png" />
                             </div>
                         </div>
-                     </div>
+                    </div>
                 </div>
 
                 <div className="inner">
                     <section id="getting-started">
                         <h3>
-                            <FormattedMessage id='wedo2.getStarted' />
+                            <FormattedMessage id="wedo2.getStarted" />
                         </h3>
                         <p className="callout">
-                            <FormattedMessage id='wedo2.requirement' />
+                            <FormattedMessage id="wedo2.requirement" />
                         </p>
                         <div className="columns3">
                             <div className="column">
                                 <img src="/images/wedo/download-device-manager.png" />
                                 <h4>
-                                    <FormattedMessage id='wedo2.installTitle' />
+                                    <FormattedMessage id="wedo2.installTitle" />
                                 </h4>
                                 <p>
-                                    <FormattedHTMLMessage id='wedo2.installText' />
+                                    <FormattedHTMLMessage id="wedo2.installText" />
                                 </p>
                             </div>
                             <div className="column">
                                 <img src="/images/wedo/set-up.png" />
                                 <h4>
-                                    <FormattedMessage id='wedo2.setupTitle' />
+                                    <FormattedMessage id="wedo2.setupTitle" />
                                 </h4>
                                 <p>
-                                    <FormattedHTMLMessage id='wedo2.setupText' />
+                                    <FormattedHTMLMessage id="wedo2.setupText" />
                                 </p>
                             </div>
                             <div className="column">
                                 <img src="/images/wedo/create-and-share.png" />
                                 <h4>
-                                    <FormattedMessage id='wedo2.createTitle' />
+                                    <FormattedMessage id="wedo2.createTitle" />
                                 </h4>
                                 <p>
-                                    <FormattedMessage id='wedo2.createText' />
+                                    <FormattedMessage id="wedo2.createText" />
                                 </p>
                             </div>
                         </div>
@@ -71,14 +71,14 @@ var Wedo2 = React.createClass({
                 <div className="banner">
                     <div className="inner" id="starter-projects">
                         <h3>
-                            <FormattedMessage id='wedo2.starterProjects' />
+                            <FormattedMessage id="wedo2.starterProjects" />
                         </h3>
                         <div className="project-list">
                             <a href="/projects/101037564/?tip_bar=ext2#editor">
                                 <div className="project-card">
                                     <img src="/images/wedo/motor.png" alt="" />
                                     <p>
-                                        <FormattedMessage id='wedo2.starterMotor' />
+                                        <FormattedMessage id="wedo2.starterMotor" />
                                     </p>
                                 </div>
                             </a>
@@ -86,7 +86,7 @@ var Wedo2 = React.createClass({
                                 <div className="project-card">
                                     <img src="/images/wedo/distance.png" alt="" />
                                     <p>
-                                        <FormattedMessage id='wedo2.starterDistance' />
+                                        <FormattedMessage id="wedo2.starterDistance" />
                                     </p>
                                 </div>
                             </a>
@@ -94,7 +94,7 @@ var Wedo2 = React.createClass({
                                 <div className="project-card">
                                     <img src="/images/wedo/tilt.png" alt="" />
                                     <p>
-                                        <FormattedMessage id='wedo2.starterTilt' />
+                                        <FormattedMessage id="wedo2.starterTilt" />
                                     </p>
                                 </div>
                             </a>
@@ -105,23 +105,23 @@ var Wedo2 = React.createClass({
                 <div className="inner">
                     <section>
                         <h3>
-                            <FormattedMessage id='wedo2.versionTitle' />
+                            <FormattedMessage id="wedo2.versionTitle" />
                         </h3>
                         <p>
-                            <FormattedMessage id='wedo2.versionText' />
+                            <FormattedMessage id="wedo2.versionText" />
                         </p>
                         <div className="device-card">
                             <h4>LEGO WeDo 1.0 Hub</h4>
                             <img src="/images/wedo/wedo1.png" alt="LEGO WeDo 1.0 Hub" />
                             <a href="/projects/editor/?tip_bar=ext1">
-                                <FormattedMessage id='wedo2.wedo1SetupInstructions' />
+                                <FormattedMessage id="wedo2.wedo1SetupInstructions" />
                             </a>
                         </div>
                         <div className="device-card">
                             <h4>LEGO WeDo 2.0 Hub</h4>
                             <img src="/images/wedo/wedo2.png" alt="LEGO WeDo 2.0 Hub" />
                             <a href="/projects/editor/?tip_bar=ext2">
-                                <FormattedMessage id='wedo2.wedo2SetupInstructions' />
+                                <FormattedMessage id="wedo2.wedo2SetupInstructions" />
                             </a>
                         </div>
                     </section>

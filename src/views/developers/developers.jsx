@@ -18,36 +18,36 @@ var Developers = React.createClass({
             <div className="developers">
                 <TitleBanner className="masthead">
                     <div className="inner">
-                        <h1><FormattedMessage id='developers.title' /></h1>
+                        <h1><FormattedMessage id="developers.title" /></h1>
                         <p className="intro">
-                            <FormattedHTMLMessage id='developers.intro' />
+                            <FormattedHTMLMessage id="developers.intro" />
                         </p>
                     </div>
                     <div className="band">
                         <SubNavigation className="inner">
                             <a href="#projects">
                                 <li>
-                                    <FormattedMessage id='developers.projectsTitle' />
+                                    <FormattedMessage id="developers.projectsTitle" />
                                 </li>
                             </a>
                             <a href="#principles">
                                 <li>
-                                    <FormattedMessage id='developers.principlesTitle' />
+                                    <FormattedMessage id="developers.principlesTitle" />
                                 </li>
                             </a>
                             <a href="#donate">
                                 <li>
-                                    <FormattedMessage id='developers.donateTitle' />
+                                    <FormattedMessage id="developers.donateTitle" />
                                 </li>
                             </a>
                             <a href="#partners">
                                 <li>
-                                    <FormattedMessage id='developers.partnersTitle' />
+                                    <FormattedMessage id="developers.partnersTitle" />
                                 </li>
                             </a>
                             <a href="#faq">
                                 <li>
-                                    <FormattedMessage id='developers.faqTitle' />
+                                    <FormattedMessage id="developers.faqTitle" />
                                 </li>
                             </a>
                         </SubNavigation>
@@ -56,28 +56,28 @@ var Developers = React.createClass({
 
                 <div className="inner">
                     <section id="projects">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h2>Projects</h2>
                         <p className="intro">
-                            <FormattedMessage id='developers.projectsIntro' />
+                            <FormattedMessage id="developers.projectsIntro" />
                         </p>
                         <FlexRow className="sidebar-row">
                             <div className="body-copy column">
-                                <h3><FormattedMessage id='developers.scratchBlocksTitle' /></h3>
+                                <h3><FormattedMessage id="developers.scratchBlocksTitle" /></h3>
                                 <p>
-                                    <FormattedHTMLMessage id='developers.scratchBlocksIntro' />
+                                    <FormattedHTMLMessage id="developers.scratchBlocksIntro" />
                                 </p>
                                 <p>
-                                    <FormattedMessage id='developers.scratchBlocksBody' />
+                                    <FormattedMessage id="developers.scratchBlocksBody" />
                                 </p>
                             </div>
                             <img className="sidebar column" src="/images/developers/block-sketch.png" alt="blocks" />
                         </FlexRow>
                         <FlexRow className="sidebar-row">
                             <div className="body-copy column">
-                                <h3><FormattedMessage id='developers.wwwTitle' /></h3>
+                                <h3><FormattedMessage id="developers.wwwTitle" /></h3>
                                 <p>
-                                    <FormattedHTMLMessage id='developers.wwwIntro' />
+                                    <FormattedHTMLMessage id="developers.wwwIntro" />
                                 </p>
                             </div>
 
@@ -100,31 +100,31 @@ var Developers = React.createClass({
                     </section>
 
                     <section id="principles">
-                        <span className="nav-spacer"></span>
-                        <h2><FormattedMessage id='developers.principlesTitle' /></h2>
+                        <span className="nav-spacer" />
+                        <h2><FormattedMessage id="developers.principlesTitle" /></h2>
                         <p className="intro">
-                            <FormattedHTMLMessage id='developers.principlesIntro' />
+                            <FormattedHTMLMessage id="developers.principlesIntro" />
                         </p>
 
                         <FlexRow className="sidebar-row">
                             <div className="body-copy column">
-                                <h3><FormattedMessage id='developers.learningPrinciplesTitle' /></h3>
+                                <h3><FormattedMessage id="developers.learningPrinciplesTitle" /></h3>
                                 <dl>
-                                    <dt><FormattedMessage id='developers.learningPrinciplesProjectsTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.learningPrinciplesProjectsTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.learningPrinciplesProjectsBody' />
+                                        <FormattedMessage id="developers.learningPrinciplesProjectsBody" />
                                     </dd>
-                                    <dt><FormattedMessage id='developers.learningPrinciplesPassionTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.learningPrinciplesPassionTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.learningPrinciplesPassionBody' />
+                                        <FormattedMessage id="developers.learningPrinciplesPassionBody" />
                                     </dd>
-                                    <dt><FormattedMessage id='developers.learningPrinciplesPeersTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.learningPrinciplesPeersTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.learningPrinciplesPeersBody' />
+                                        <FormattedMessage id="developers.learningPrinciplesPeersBody" />
                                     </dd>
-                                    <dt><FormattedMessage id='developers.learningPrinciplesPlayTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.learningPrinciplesPlayTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.learningPrinciplesPlayBody' />
+                                        <FormattedMessage id="developers.learningPrinciplesPlayBody" />
                                     </dd>
                                 </dl>
                             </div>
@@ -132,23 +132,23 @@ var Developers = React.createClass({
 
                         <FlexRow className="sidebar-row">
                             <div className="body-copy column">
-                                <h3><FormattedMessage id='developers.designPrinciplesTitle' /></h3>
+                                <h3><FormattedMessage id="developers.designPrinciplesTitle" /></h3>
                                 <dl>
-                                    <dt><FormattedMessage id='developers.designPrinciplesRoomTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.designPrinciplesRoomTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.designPrinciplesRoomBody' />
+                                        <FormattedMessage id="developers.designPrinciplesRoomBody" />
                                     </dd>
-                                    <dt><FormattedMessage id='developers.designPrinciplesSimpleTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.designPrinciplesSimpleTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.designPrinciplesSimpleBody' />
+                                        <FormattedMessage id="developers.designPrinciplesSimpleBody" />
                                     </dd>
-                                    <dt><FormattedMessage id='developers.designPrinciplesGlobalTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.designPrinciplesGlobalTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.designPrinciplesGlobalBody' />
+                                        <FormattedMessage id="developers.designPrinciplesGlobalBody" />
                                     </dd>
-                                    <dt><FormattedMessage id='developers.designPrinciplesTinkerTitle' /></dt>
+                                    <dt><FormattedMessage id="developers.designPrinciplesTinkerTitle" /></dt>
                                     <dd>
-                                        <FormattedMessage id='developers.designPrinciplesTinkerBody' />
+                                        <FormattedMessage id="developers.designPrinciplesTinkerBody" />
                                     </dd>
                                 </dl>
                             </div>
@@ -156,24 +156,24 @@ var Developers = React.createClass({
                     </section>
 
                     <section id="donate">
-                        <span className="nav-spacer"></span>
-                        <h2><FormattedMessage id='developers.donateTitle' /></h2>
+                        <span className="nav-spacer" />
+                        <h2><FormattedMessage id="developers.donateTitle" /></h2>
                         <p>
-                            <FormattedHTMLMessage id='developers.donateIntro' />
+                            <FormattedHTMLMessage id="developers.donateIntro" />
                         </p>
                         <p>
-                            <FormattedMessage id='developers.donateBody' />
+                            <FormattedMessage id="developers.donateBody" />
                         </p>
                         <p>
-                            <FormattedMessage id='developers.donateThanks' />
+                            <FormattedMessage id="developers.donateThanks" />
                         </p>
                     </section>
 
                     <section id="partners">
-                        <span className="nav-spacer"></span>
-                        <h3><FormattedMessage id='developers.partnersTitle' /></h3>
+                        <span className="nav-spacer" />
+                        <h3><FormattedMessage id="developers.partnersTitle" /></h3>
                         <p>
-                            <FormattedMessage id='developers.partnersIntro' />
+                            <FormattedMessage id="developers.partnersIntro" />
                         </p>
 
                         <FlexRow className="logos">
@@ -188,45 +188,45 @@ var Developers = React.createClass({
                 <TitleBanner className="faq-banner">
                     <div className="inner">
                         <section id="faq">
-                            <span className="nav-spacer"></span>
-                            <h3><FormattedMessage id='developers.faqTitle' /></h3>
+                            <span className="nav-spacer" />
+                            <h3><FormattedMessage id="developers.faqTitle" /></h3>
                             <FlexRow className="three-col-row">
                                 <div className="faq column">
-                                    <h4><FormattedMessage id='developers.faqAboutTitle' /></h4>
+                                    <h4><FormattedMessage id="developers.faqAboutTitle" /></h4>
                                     <p>
-                                        <FormattedHTMLMessage id='developers.faqAboutBody' />
+                                        <FormattedHTMLMessage id="developers.faqAboutBody" />
                                     </p>
                                 </div>
                                 <div className="faq column">
-                                    <h4><FormattedMessage id='developers.faqRulesTitle' /></h4>
+                                    <h4><FormattedMessage id="developers.faqRulesTitle" /></h4>
                                     <p>
-                                        <FormattedMessage id='developers.faqRulesBody' />
+                                        <FormattedMessage id="developers.faqRulesBody" />
                                     </p>
                                 </div>
                                 <div className="faq column">
                                     <h4>
-                                        <FormattedMessage id='developers.faqNameTitle' />
+                                        <FormattedMessage id="developers.faqNameTitle" />
                                     </h4>
                                     <p>
-                                        <FormattedMessage id='developers.faqNameBody' />
+                                        <FormattedMessage id="developers.faqNameBody" />
                                     </p>
                                 </div>
                                 <div className="faq column">
-                                    <h4><FormattedMessage id='developers.faqReleasesTitle' /></h4>
+                                    <h4><FormattedMessage id="developers.faqReleasesTitle" /></h4>
                                     <p>
-                                        <FormattedMessage id='developers.faqReleasesBody' />
+                                        <FormattedMessage id="developers.faqReleasesBody" />
                                     </p>
                                 </div>
                                 <div className="faq column">
-                                    <h4><FormattedMessage id='developers.faqDifferencesTitle' /></h4>
+                                    <h4><FormattedMessage id="developers.faqDifferencesTitle" /></h4>
                                     <p>
-                                        <FormattedMessage id='developers.faqDifferencesBody' />
+                                        <FormattedMessage id="developers.faqDifferencesBody" />
                                     </p>
                                 </div>
                                 <div className="faq column">
-                                    <h4><FormattedMessage id='developers.faqCollabTitle' /></h4>
+                                    <h4><FormattedMessage id="developers.faqCollabTitle" /></h4>
                                     <p>
-                                        <FormattedHTMLMessage id='developers.faqCollabBody' />
+                                        <FormattedHTMLMessage id="developers.faqCollabBody" />
                                     </p>
                                 </div>
                             </FlexRow>

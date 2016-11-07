@@ -30,7 +30,8 @@ var AdminPanel = React.createClass({
                 <div id="admin-panel" className="visible">
                     <span
                         className="toggle"
-                        onClick={this.handleToggleVisibility}>
+                        onClick={this.handleToggleVisibility}
+                    >
 
                         x
                     </span>
@@ -53,7 +54,7 @@ var AdminPanel = React.createClass({
                                                 </Button>
                                             </div>
                                         </form>
-                                  </li>
+                                    </li>
                                 </ul>
                             </dd>
                         </dl>
@@ -65,7 +66,8 @@ var AdminPanel = React.createClass({
                 <div id="admin-panel" className="hidden">
                     <span
                         className="toggle"
-                        onClick={this.handleToggleVisibility}>
+                        onClick={this.handleToggleVisibility}
+                    >
 
                         &gt;
                     </span>

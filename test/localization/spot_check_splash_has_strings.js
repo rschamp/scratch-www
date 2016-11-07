@@ -20,11 +20,11 @@ tap.test('spotCheckSplashStrings', function (t) {
     var idsWithICU = localeCompare.idToICUMap('splash', ids);
     var icuWithIds = localeCompare.icuToIdMap('splash', ids);
     var md5WithIds = localeCompare.getMD5Map(icuWithIds);
-    var keysToCheck = Object.keys(merge(viewLocales['splash']['en'])).sort();
+    var keysToCheck = Object.keys(merge(viewLocales.splash.en)).sort();
     for (var i in isoCodes) {
         var translations = localeCompare.getTranslationsForLanguage(isoCodes[i], idsWithICU, md5WithIds);
         t.same(
-            Object.keys(translations['splash'][isoCodes[i]]).sort(),
+            Object.keys(translations.splash[isoCodes[i]]).sort(),
             keysToCheck,
             'check Splash keys for language ' + isoCodes[i]
         );

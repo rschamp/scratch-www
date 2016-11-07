@@ -14,21 +14,21 @@ var Jobs = React.createClass({
                 <div className="top">
                     <div className="inner">
                         <img src="/images/jobs.png" />
-                        <h2><FormattedMessage id='jobs.titleQuestion' /></h2>
+                        <h2><FormattedMessage id="jobs.titleQuestion" /></h2>
                     </div>
                 </div>
 
                 <div className="middle">
                     <div className="inner">
-                        <h3><FormattedMessage id='jobs.joinScratchTeam' /></h3>
-                        <p><FormattedMessage id='jobs.info' /></p>
-                        <p><FormattedMessage id='jobs.workEnvironment' /></p>
+                        <h3><FormattedMessage id="jobs.joinScratchTeam" /></h3>
+                        <p><FormattedMessage id="jobs.info" /></p>
+                        <p><FormattedMessage id="jobs.workEnvironment" /></p>
                     </div>
                 </div>
 
                 <div className="bottom">
                     <div className="inner">
-                        <h3><FormattedMessage id='jobs.openings' /></h3>
+                        <h3><FormattedMessage id="jobs.openings" /></h3>
                         <ul>
                             <li>
                                 <a href="http://bit.ly/24B9aEz">

@@ -4,7 +4,9 @@
 function Handler (route) {
     // Handle redirects
     if (route.redirect) {
-        return (req, res) => { res.redirect(route.redirect); };
+        return (req, res) => {
+            res.redirect(route.redirect);
+        };
     }
 
     var url = '/' + route.name + '.html';

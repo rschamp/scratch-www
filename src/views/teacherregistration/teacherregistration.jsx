@@ -88,31 +88,40 @@ var TeacherRegistration = React.createClass({
                 :
                     <Progression {... this.state}>
                         <Steps.UsernameStep onNextStep={this.advanceStep}
-                                            waiting={this.state.waiting} />
+                            waiting={this.state.waiting}
+                        />
                         <Steps.DemographicsStep onNextStep={this.advanceStep}
-                                                waiting={this.state.waiting} />
+                            waiting={this.state.waiting}
+                        />
                         <Steps.NameStep onNextStep={this.advanceStep}
-                                        waiting={this.state.waiting} />
+                            waiting={this.state.waiting}
+                        />
                         <Steps.PhoneNumberStep onNextStep={this.advanceStep}
-                                               waiting={this.state.waiting}
-                                               defaultCountry={
+                            waiting={this.state.waiting}
+                            defaultCountry={
                                                    this.state.formData.user && this.state.formData.user.country
-                                               } />
+                                               }
+                        />
                         <Steps.OrganizationStep onNextStep={this.advanceStep}
-                                                waiting={this.state.waiting} />
+                            waiting={this.state.waiting}
+                        />
                         <Steps.AddressStep onNextStep={this.advanceStep}
-                                           waiting={this.state.waiting}
-                                           defaultCountry={
+                            waiting={this.state.waiting}
+                            defaultCountry={
                                                this.state.formData.user && this.state.formData.user.country
-                                           } />
+                                           }
+                        />
                         <Steps.UseScratchStep onNextStep={this.advanceStep}
-                                              waiting={this.state.waiting} />
+                            waiting={this.state.waiting}
+                        />
                         <Steps.EmailStep onNextStep={this.register}
-                                         waiting={this.state.waiting} />
+                            waiting={this.state.waiting}
+                        />
                         <Steps.TeacherApprovalStep email={this.state.formData.user && this.state.formData.user.email}
-                                                   confirmed={permissions.social}
-                                                   invited={permissions.educator_invitee}
-                                                   educator={permissions.educator} />
+                            confirmed={permissions.social}
+                            invited={permissions.educator_invitee}
+                            educator={permissions.educator}
+                        />
                     </Progression>
                 }
             </Deck>

@@ -16,43 +16,50 @@ var ConferenceFooter = React.createClass({
                         <li className="odl">
                             <a href="https://odl.mit.edu/">
                                 <img src="/images/conference/footer/mit-odl.png"
-                                     alt="MIT Office of Digital Learning" />
+                                    alt="MIT Office of Digital Learning"
+                                />
                             </a>
                         </li>
                         <li className="intel">
                             <a href="http://www.intel.com/content/www/us/en/homepage.html">
                                 <img src="/images/conference/footer/intel.png"
-                                     alt="Intel" />
+                                    alt="Intel"
+                                />
                             </a>
                         </li>
                         <li className="lego">
                             <a href="http://www.legofoundation.com/">
                                 <img src="/images/conference/footer/lego-foundation.png"
-                                     alt="LEGO Foundation" />
+                                    alt="LEGO Foundation"
+                                />
                             </a>
                         </li>
                         <li className="google">
                             <a href="http://www.google.com/">
                                 <img src="/images/conference/footer/google.png"
-                                     alt="Google" />
+                                    alt="Google"
+                                />
                             </a>
                         </li>
                         <li className="siegel">
                             <a href="http://www.siegelendowment.org/">
                                 <img src="/images/conference/footer/siegel-endowment.png"
-                                     alt="Siegel Family Endowment" />
+                                    alt="Siegel Family Endowment"
+                                />
                             </a>
                         </li>
                         <li className="nostarch">
                             <a href="https://www.nostarch.com/">
                                 <img src="/images/conference/footer/no-starch.png"
-                                     alt="No Starch Press" />
+                                    alt="No Starch Press"
+                                />
                             </a>
                         </li>
                         <li className="scratchfoundation">
                             <a href="http://www.scratchfoundation.org/">
                                 <img src="/images/conference/footer/scratch-foundation.png"
-                                     alt="Scratch Foundation" />
+                                    alt="Scratch Foundation"
+                                />
                             </a>
                         </li>
                     </FlexRow>

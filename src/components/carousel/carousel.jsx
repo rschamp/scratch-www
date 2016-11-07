@@ -75,15 +75,16 @@ var Carousel = React.createClass({
 
                     return (
                         <Thumbnail key={[this.key, item.id].join('.')}
-                                   showLoves={this.props.showLoves}
-                                   showRemixes={this.props.showRemixes}
-                                   type={item.type}
-                                   href={href}
-                                   title={item.title}
-                                   src={item.thumbnail_url}
-                                   creator={item.creator}
-                                   remixes={item.remixers_count}
-                                   loves={item.love_count} />
+                            showLoves={this.props.showLoves}
+                            showRemixes={this.props.showRemixes}
+                            type={item.type}
+                            href={href}
+                            title={item.title}
+                            src={item.thumbnail_url}
+                            creator={item.creator}
+                            remixes={item.remixers_count}
+                            loves={item.love_count}
+                        />
                     );
                 }.bind(this))}
             </Slider>

@@ -29,11 +29,15 @@ var Jar = {
             // Django makes its base64 strings url safe by replacing + and / with - and _ respectively
             // using base64.urlsafe_b64encode
             // https://docs.python.org/2/library/base64.html#base64.b64encode
-            b64Data = b64Data.replace(/[-_]/g, function (c) {return {'-':'+', '_':'/'}[c]; });
+            b64Data = b64Data.replace(/[-_]/g, function (c) {
+                return {'-': '+', '_': '/'}[c];
+            });
             var strData = atob(b64Data);
 
             if (decompress) {
-                var charData = strData.split('').map(function (c) { return c.charCodeAt(0); });
+                var charData = strData.split('').map(function (c) {
+                    return c.charCodeAt(0);
+                });
                 var binData = new Uint8Array(charData);
                 var data = pako.inflate(binData);
                 strData = String.fromCharCode.apply(null, new Uint16Array(data));

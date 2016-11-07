@@ -1,7 +1,7 @@
 var defaults = require('lodash.defaults');
 var xhr = require('xhr');
 
-var jar  = require('./jar');
+var jar = require('./jar');
 var log = require('./log');
 var urlParams = require('./url-params');
 
@@ -77,7 +77,7 @@ module.exports = function (opts, callback) {
             }
             callback(err, body, res);
         });
-    }.bind(this);
+    };
 
     if (typeof jar.get('scratchlanguage') !== 'undefined') {
         opts.headers['Accept-Language'] = jar.get('scratchlanguage') + ', en;q=0.8';
@@ -90,7 +90,7 @@ module.exports = function (opts, callback) {
             if (err) return log.error('Error while retrieving CSRF token', err);
             opts.headers['X-CSRFToken'] = csrftoken;
             apiRequest(opts);
-        }.bind(this));
+        });
     } else {
         apiRequest(opts);
     }

@@ -38,8 +38,8 @@ tap.test('spotCheckNavBar', function (t) {
         var translations = localeCompare.getTranslationsForLanguage(languagesToCheck[i], idsWithICU, md5WithIds);
         for (var j in idsToCheck) {
             t.notEqual(
-                translations['general'][languagesToCheck[i]][idsToCheck[j]],
-                viewLocales['general']['en'][idsToCheck[j]],
+                translations.general[languagesToCheck[i]][idsToCheck[j]],
+                viewLocales.general.en[idsToCheck[j]],
                 'check localization of ' + idsToCheck[j] + ' for ' + languagesToCheck[i]
             );
         }
@@ -63,8 +63,8 @@ tap.test('spotCheckNavBarFakeLanguage', function (t) {
     var translations = localeCompare.getTranslationsForLanguage('yum', idsWithICU, md5WithIds);
     for (var i in fakeLanguageIdsToCheck) {
         t.notEqual(
-            translations['splash']['yum'][fakeLanguageIdsToCheck[i]],
-            viewLocales['splash']['en'][fakeLanguageIdsToCheck[i]],
+            translations.splash.yum[fakeLanguageIdsToCheck[i]],
+            viewLocales.splash.en[fakeLanguageIdsToCheck[i]],
             'check localization of ' + fakeLanguageIdsToCheck[i] + ' for yum'
         );
     }

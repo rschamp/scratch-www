@@ -55,7 +55,7 @@ Helpers.mergeNewTranslations = function (existingTranslations, newTranslations, 
         }
     }
 
-    //Fill in defaults
+    // Fill in defaults
     for (var icuId in icuTemplate) {
         if (!existingTranslations.hasOwnProperty(icuId)) existingTranslations[icuId] = icuTemplate[icuId];
     }

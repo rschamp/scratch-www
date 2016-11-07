@@ -20,11 +20,11 @@ tap.test('spotCheckWedo2Strings', function (t) {
     var idsWithICU = localeCompare.idToICUMap('wedo2', ids);
     var icuWithIds = localeCompare.icuToIdMap('wedo2', ids);
     var md5WithIds = localeCompare.getMD5Map(icuWithIds);
-    var keysToCheck = Object.keys(merge(viewLocales['wedo2']['en'])).sort();
+    var keysToCheck = Object.keys(merge(viewLocales.wedo2.en)).sort();
     for (var i in isoCodes) {
         var translations = localeCompare.getTranslationsForLanguage(isoCodes[i], idsWithICU, md5WithIds);
         t.same(
-            Object.keys(translations['wedo2'][isoCodes[i]]).sort(),
+            Object.keys(translations.wedo2[isoCodes[i]]).sort(),
             keysToCheck,
             'check About keys for language ' + isoCodes[i]
         );

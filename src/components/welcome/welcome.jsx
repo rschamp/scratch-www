@@ -22,14 +22,15 @@ var Welcome = React.createClass({
     render: function () {
         return (
             <Box title={this.props.messages['welcome.welcomeToScratch']}
-                 className="welcome"
-                 moreTitle="x"
-                 moreHref="#"
-                 moreProps={{
-                     className: 'close',
-                     title: 'Dismiss',
-                     onClick: this.props.onDismiss
-                 }}>
+                className="welcome"
+                moreTitle="x"
+                moreHref="#"
+                moreProps={{
+                    className: 'close',
+                    title: 'Dismiss',
+                    onClick: this.props.onDismiss
+                }}
+            >
 
                 <div className="welcome-col blue">
                     <h4>

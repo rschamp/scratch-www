@@ -45,25 +45,25 @@ var Navigation = React.createClass({
         if (this.props.session.session.user) {
             this.getMessageCount();
             var intervalId = setInterval(this.getMessageCount, 120000); // check for new messages every 2 mins.
-            this.setState({'messageCountIntervalId': intervalId});
+            this.setState({messageCountIntervalId: intervalId});
         }
     },
     componentDidUpdate: function (prevProps) {
         if (prevProps.session.session.user != this.props.session.session.user) {
             this.setState({
-                'loginOpen': false,
-                'accountNavOpen': false
+                loginOpen: false,
+                accountNavOpen: false
             });
             if (this.props.session.session.user) {
                 this.getMessageCount();
                 var intervalId = setInterval(this.getMessageCount, 120000);
-                this.setState({'messageCountIntervalId': intervalId});
+                this.setState({messageCountIntervalId: intervalId});
             } else {
                 // clear message count check, and set to default id.
                 clearInterval(this.state.messageCountIntervalId);
                 this.setState({
-                    'unreadMessageCount': 0,
-                    'messageCountIntervalId': -1
+                    unreadMessageCount: 0,
+                    messageCountIntervalId: -1
                 });
             }
         }
@@ -73,8 +73,8 @@ var Navigation = React.createClass({
         if (this.state.messageCountIntervalId != -1) {
             clearInterval(this.state.messageCountIntervalId);
             this.setState({
-                'unreadMessageCount': 0,
-                'messageCountIntervalId': -1
+                unreadMessageCount: 0,
+                messageCountIntervalId: -1
             });
         }
     },
@@ -87,27 +87,27 @@ var Navigation = React.createClass({
             method: 'get',
             uri: '/users/' + this.props.session.session.user.username + '/messages/count'
         }, function (err, body) {
-            if (err) return this.setState({'unreadMessageCount': 0});
+            if (err) return this.setState({unreadMessageCount: 0});
             if (body) {
                 var count = parseInt(body.count, 10);
-                return this.setState({'unreadMessageCount': count});
+                return this.setState({unreadMessageCount: count});
             }
         }.bind(this));
     },
     handleJoinClick: function (e) {
         e.preventDefault();
-        this.setState({'registrationOpen': true});
+        this.setState({registrationOpen: true});
     },
     handleLoginClick: function (e) {
         e.preventDefault();
-        this.setState({'loginOpen': !this.state.loginOpen});
+        this.setState({loginOpen: !this.state.loginOpen});
     },
     closeLogin: function () {
-        this.setState({'loginOpen': false});
+        this.setState({loginOpen: false});
     },
     handleLogIn: function (formData, callback) {
-        this.setState({'loginError': null});
-        formData['useMessages'] = true;
+        this.setState({loginError: null});
+        formData.useMessages = true;
         api({
             method: 'post',
             host: '',
@@ -115,7 +115,7 @@ var Navigation = React.createClass({
             json: formData,
             useCsrf: true
         }, function (err, body) {
-            if (err) this.setState({'loginError': err.message});
+            if (err) this.setState({loginError: err.message});
             if (body) {
                 body = body[0];
                 if (!body.success) {
@@ -123,7 +123,7 @@ var Navigation = React.createClass({
                         window.location = body.redirect;
                     }
                     // Update login error message to a friendlier one if it exists
-                    this.setState({'loginError': body.msg});
+                    this.setState({loginError: body.msg});
                 } else {
                     this.closeLogin();
                     body.messages.map(function (message) {
@@ -153,19 +153,19 @@ var Navigation = React.createClass({
     },
     handleAccountNavClick: function (e) {
         e.preventDefault();
-        this.setState({'accountNavOpen': true});
+        this.setState({accountNavOpen: true});
     },
     closeAccountNav: function () {
-        this.setState({'accountNavOpen': false});
+        this.setState({accountNavOpen: false});
     },
     showCanceledDeletion: function () {
-        this.setState({'canceledDeletionOpen': true});
+        this.setState({canceledDeletionOpen: true});
     },
     closeCanceledDeletion: function () {
-        this.setState({'canceledDeletionOpen': false});
+        this.setState({canceledDeletionOpen: false});
     },
     closeRegistration: function () {
-        this.setState({'registrationOpen': false});
+        this.setState({registrationOpen: false});
     },
     completeRegistration: function () {
         this.props.dispatch(sessionActions.refreshSession());
@@ -191,7 +191,7 @@ var Navigation = React.createClass({
         return (
             <NavigationBox className={classes}>
                 <ul>
-                    <li className="logo"><a href="/" aria-label="Scratch"></a></li>
+                    <li className="logo"><a href="/" aria-label="Scratch" /></li>
 
                     <li className="link create">
                         <a href={createLink}>
@@ -223,9 +223,10 @@ var Navigation = React.createClass({
                         <Form onSubmit={this.onSearchSubmit}>
                             <Button type="submit" className="btn-search" />
                             <Input type="text"
-                                   aria-label={formatMessage({id: 'general.search'})}
-                                   placeholder={formatMessage({id: 'general.search'})}
-                                   name="q" />
+                                aria-label={formatMessage({id: 'general.search'})}
+                                placeholder={formatMessage({id: 'general.search'})}
+                                name="q"
+                            />
                         </Form>
                     </li>
                     {this.props.session.status === sessionActions.Status.FETCHED ? (
@@ -233,7 +234,8 @@ var Navigation = React.createClass({
                             <li className="link right messages" key="messages">
                                 <a
                                     href="/messages/"
-                                    title={formatMessage({id: 'general.messages'})}>
+                                    title={formatMessage({id: 'general.messages'})}
+                                >
 
                                     <span className={messageClasses}>{this.state.unreadMessageCount}</span>
                                     <FormattedMessage id="general.messages" />
@@ -242,24 +244,27 @@ var Navigation = React.createClass({
                             <li className="link right mystuff" key="mystuff">
                                 <a
                                     href="/mystuff/"
-                                    title={formatMessage({id: 'general.myStuff'})}>
+                                    title={formatMessage({id: 'general.myStuff'})}
+                                >
 
                                     <FormattedMessage id="general.myStuff" />
                                 </a>
                             </li>,
                             <li className="link right account-nav" key="account-nav">
                                 <a className={dropdownClasses}
-                                    href="#" onClick={this.handleAccountNavClick}>
+                                    href="#" onClick={this.handleAccountNavClick}
+                                >
                                     <Avatar src={this.props.session.session.user.thumbnailUrl} alt="" />
-                                    <span className='profile-name'>
+                                    <span className="profile-name">
                                         {this.props.session.session.user.username}
                                     </span>
                                 </a>
                                 <Dropdown
-                                        as="ul"
-                                        isOpen={this.state.accountNavOpen}
-                                        onRequestClose={this.closeAccountNav}
-                                        className={process.env.SCRATCH_ENV}>
+                                    as="ul"
+                                    isOpen={this.state.accountNavOpen}
+                                    onRequestClose={this.closeAccountNav}
+                                    className={process.env.SCRATCH_ENV}
+                                >
                                     <li>
                                         <a href={this.getProfileUrl()}>
                                             <FormattedMessage id="general.profile" />
@@ -303,34 +308,39 @@ var Navigation = React.createClass({
                                 </a>
                             </li>,
                             <Registration
-                                    key="registration"
-                                    isOpen={this.state.registrationOpen}
-                                    onRequestClose={this.closeRegistration}
-                                    onRegistrationDone={this.completeRegistration} />,
+                                key="registration"
+                                isOpen={this.state.registrationOpen}
+                                onRequestClose={this.closeRegistration}
+                                onRegistrationDone={this.completeRegistration}
+                            />,
                             <li className="link right login-item" key="login">
                                 <a
                                     href="#"
                                     onClick={this.handleLoginClick}
                                     className="ignore-react-onclickoutside"
-                                    key="login-link">
-                                        <FormattedMessage id="general.signIn" />
-                               </a>
+                                    key="login-link"
+                                >
+                                    <FormattedMessage id="general.signIn" />
+                                </a>
                                 <Dropdown
-                                        className="login-dropdown with-arrow"
-                                        isOpen={this.state.loginOpen}
-                                        onRequestClose={this.closeLogin}
-                                        key="login-dropdown">
+                                    className="login-dropdown with-arrow"
+                                    isOpen={this.state.loginOpen}
+                                    onRequestClose={this.closeLogin}
+                                    key="login-dropdown"
+                                >
                                     <Login
                                         onLogIn={this.handleLogIn}
-                                        error={this.state.loginError} />
+                                        error={this.state.loginError}
+                                    />
                                 </Dropdown>
                             </li>
                         ]) : [
                         ]}
                 </ul>
                 <Modal isOpen={this.state.canceledDeletionOpen}
-                       onRequestClose={this.closeCanceledDeletion}
-                       style={{content:{padding: 15}}}>
+                    onRequestClose={this.closeCanceledDeletion}
+                    style={{content: {padding: 15}}}
+                >
                     <h4>Your Account Will Not Be Deleted</h4>
                     <p>
                         Your account was scheduled for deletion but you logged in. Your account has been reactivated.

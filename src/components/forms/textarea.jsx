@@ -16,8 +16,9 @@ var TextArea = React.createClass({
         );
         return (
             <FRCTextarea {... this.props}
-                         className="textarea"
-                         rowClassName={classes} />
+                className="textarea"
+                rowClassName={classes}
+            />
         );
     }
 });

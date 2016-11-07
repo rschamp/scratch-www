@@ -107,20 +107,24 @@ var StudentRegistration = intl.injectIntl(React.createClass({
                 :
                     <Progression {... this.state}>
                         <Steps.ClassInviteNewStudentStep classroom={this.state.classroom}
-                                                         onNextStep={this.advanceStep}
-                                                         waiting={this.state.waiting || !this.state.classroom} />
+                            onNextStep={this.advanceStep}
+                            waiting={this.state.waiting || !this.state.classroom}
+                        />
                         <Steps.UsernameStep onNextStep={this.advanceStep}
-                                            title={usernameTitle}
-                                            description={usernameDescription}
-                                            tooltip={usernameTooltip}
-                                            usernameHelp={usernameHelp}
-                                            waiting={this.state.waiting} />
+                            title={usernameTitle}
+                            description={usernameDescription}
+                            tooltip={usernameTooltip}
+                            usernameHelp={usernameHelp}
+                            waiting={this.state.waiting}
+                        />
                         <Steps.DemographicsStep description={demographicsDescription}
-                                                onNextStep={this.register}
-                                                waiting={this.state.waiting} />
+                            onNextStep={this.register}
+                            waiting={this.state.waiting}
+                        />
                         <Steps.ClassWelcomeStep classroom={this.state.classroom}
-                                                onNextStep={this.goToClass}
-                                                waiting={this.state.waiting || !this.state.classroom} />
+                            onNextStep={this.goToClass}
+                            waiting={this.state.waiting || !this.state.classroom}
+                        />
                     </Progression>
                 }
             </Deck>

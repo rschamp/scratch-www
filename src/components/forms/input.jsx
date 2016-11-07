@@ -35,10 +35,11 @@ var Input = React.createClass({
         );
         return (
             <FRCInput {... this.props}
-                      className="input"
-                      rowClassName={classes}
-                      onValid={this.onValid}
-                      onInvalid={this.onInvalid} />
+                className="input"
+                rowClassName={classes}
+                onValid={this.onValid}
+                onInvalid={this.onInvalid}
+            />
         );
     }
 });

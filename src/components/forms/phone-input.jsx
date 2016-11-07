@@ -11,7 +11,9 @@ var inputHOC = require('./input-hoc.jsx');
 var intl = require('../../lib/intl.jsx');
 var validationHOCFactory = require('./validations.jsx').validationHOCFactory;
 
-var allIso2 = allCountries.map(function (country) {return country.iso2;});
+var allIso2 = allCountries.map(function (country) {
+    return country.iso2;
+});
 
 require('./row.scss');
 require('./phone-input.scss');
@@ -39,21 +41,21 @@ var PhoneInput = React.createClass({
     render: function () {
         var defaultCountry = PhoneInput.getDefaultProps().defaultCountry;
         if (allIso2.indexOf(this.props.defaultCountry.toLowerCase()) !== -1) {
-            defaultCountry =  this.props.defaultCountry.toLowerCase();
+            defaultCountry = this.props.defaultCountry.toLowerCase();
         }
         return (
             <Row {... this.getRowProperties()}
-                 htmlFor={this.getId()}
-                 rowClassName={classNames('phone-input', this.props.className)}
+                htmlFor={this.getId()}
+                rowClassName={classNames('phone-input', this.props.className)}
             >
                 <div className="input-group">
                     <ReactPhoneInput className="form-control"
-                                     {... this.props}
-                                     defaultCountry={defaultCountry}
-                                     onChange={this.onChangeInput}
-                                     id={this.getId()}
-                                     label={null}
-                                     disabled={this.isFormDisabled() || this.props.disabled}
+                        {... this.props}
+                        defaultCountry={defaultCountry}
+                        onChange={this.onChangeInput}
+                        id={this.getId()}
+                        label={null}
+                        disabled={this.isFormDisabled() || this.props.disabled}
                     />
                     {this.renderHelp()}
                     {this.renderErrorMessage()}

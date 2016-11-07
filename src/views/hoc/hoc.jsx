@@ -30,10 +30,10 @@ var Hoc = React.createClass({
             <div className="hoc">
                 <TitleBanner className={this.state.bgClass}>
                     <h1>
-                        <FormattedMessage id='hoc.title' />
+                        <FormattedMessage id="hoc.title" />
                     </h1>
                     <p>
-                        <FormattedMessage id='hoc.subTitle' />
+                        <FormattedMessage id="hoc.subTitle" />
                     </p>
 
                     <section className="hoc-section mod-title-banner">
@@ -41,12 +41,14 @@ var Hoc = React.createClass({
                             <div className="flex-row-card">
                                 <a href="/projects/editor/?tip_bar=name">
                                     <div className="flex-row-card-info"
-                                         onMouseEnter={this.onCardEnter.bind(this, 'mod-name-bg')}>
+                                        onMouseEnter={this.onCardEnter.bind(this, 'mod-name-bg')}
+                                    >
                                         <img className="flex-row-card-info-img"
-                                             src="/images/hoc/name-tutorial.jpg"
-                                             alt="" />
+                                            src="/images/hoc/name-tutorial.jpg"
+                                            alt=""
+                                        />
                                         <Button className="flex-row-card-info-button">
-                                            <FormattedMessage id='hoc.tipsAnimateYourNameTitle' />
+                                            <FormattedMessage id="hoc.tipsAnimateYourNameTitle" />
                                         </Button>
                                     </div>
                                 </a>
@@ -56,10 +58,11 @@ var Hoc = React.createClass({
                                 <a href="/projects/editor/?tip_bar=fly">
                                     <div className="flex-row-card-info">
                                         <img className="flex-row-card-info-img"
-                                             src="/images/hoc/make-it-fly-tutorial.jpg"
-                                             alt="" />
+                                            src="/images/hoc/make-it-fly-tutorial.jpg"
+                                            alt=""
+                                        />
                                         <Button className="flex-row-card-info-button">
-                                            <FormattedMessage id='hoc.tipsMakeItFlyTitle' />
+                                            <FormattedMessage id="hoc.tipsMakeItFlyTitle" />
                                         </Button>
                                     </div>
                                 </a>
@@ -69,10 +72,11 @@ var Hoc = React.createClass({
                                 <a href="/projects/editor/?tip_bar=music">
                                     <div className="flex-row-card-info">
                                         <img className="flex-row-card-info-img"
-                                             src="/images/hoc/make-music-tutorial.png"
-                                             alt="" />
+                                            src="/images/hoc/make-music-tutorial.png"
+                                            alt=""
+                                        />
                                         <Button className="flex-row-card-info-button">
-                                            <FormattedMessage id='hoc.tipsMakeMusicTitle' />
+                                            <FormattedMessage id="hoc.tipsMakeMusicTitle" />
                                         </Button>
                                     </div>
                                 </a>
@@ -82,26 +86,25 @@ var Hoc = React.createClass({
                     
                     <SubNavigation>
                         <li className="description">
-                            <FormattedMessage id='hoc.findOutMore' />:
+                            <FormattedMessage id="hoc.findOutMore" />:
                         </li>
                         <a href="/about/">
                             <li>
-                                <FormattedMessage id='general.about' />
+                                <FormattedMessage id="general.about" />
                             </li>
                         </a>
                         <a href="/parents/">
                             <li>
-                                <FormattedMessage id='general.forParents' />
+                                <FormattedMessage id="general.forParents" />
                             </li>
                         </a>
                         <a href="/educators/">
                             <li>
-                                <FormattedMessage id='general.forEducators'/>
+                                <FormattedMessage id="general.forEducators" />
                             </li>
                         </a>
                     </SubNavigation>
                 </TitleBanner>
-
                 
 
                 <div className="inner">
@@ -109,56 +112,63 @@ var Hoc = React.createClass({
                         <section id="teacher" className="hoc-section">
                             <div className="hoc-section-column">
                                 <h3>
-                                    <FormattedMessage id='hoc.activityCardsHeader' />
+                                    <FormattedMessage id="hoc.activityCardsHeader" />
                                 </h3>
                                 <p className="section-paragraph">
-                                    <FormattedHTMLMessage id='hoc.activityCardsInfo1' />
+                                    <FormattedHTMLMessage id="hoc.activityCardsInfo1" />
                                 </p>
                             </div>
 
                             <div className="hoc-section-resource">
                                 <img className="hoc-section-resource-img"
-                                     src="/svgs/tips-card.svg"
-                                     alt="" />
+                                    src="/svgs/tips-card.svg"
+                                    alt=""
+                                />
                                 <div className="hoc-section-resource-info">
                                     <h5 className="hoc-section-resource-info-header">
-                                        <FormattedMessage id='hoc.tipsAnimateYourNameTitle' />
+                                        <FormattedMessage id="hoc.tipsAnimateYourNameTitle" />
                                     </h5>
                                     <a className="hoc-section-resource-anchor"
-                                       href="/scratchr2/static/pdfs/help/AnimateYourNameCards.pdf">
-                                        <FormattedMessage id='hoc.activityCards' />
+                                        href="/scratchr2/static/pdfs/help/AnimateYourNameCards.pdf"
+                                    >
+                                        <FormattedMessage id="hoc.activityCards" />
                                     </a>
                                     <a className="hoc-section-resource-anchor"
-                                       href="/scratchr2/static/pdfs/help/AnimateYourNameGuide.pdf">
-                                        <FormattedMessage id='hoc.facilitatorGuide' />
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="hoc-section-resource">
-                                <img className="hoc-section-resource-img"
-                                     src="/svgs/tips-card.svg"
-                                     alt="" />
-                                <div className="hoc-section-resource-info">
-                                    <h5 className="hoc-section-resource-info-header">
-                                        <FormattedMessage id='hoc.tipsMakeItFlyTitle' />
-                                    </h5>
-                                    <a className="hoc-section-resource-anchor"
-                                       href="/scratchr2/static/pdfs/help/FlyCards.pdf">
-                                        <FormattedMessage id='hoc.activityCards' />
+                                        href="/scratchr2/static/pdfs/help/AnimateYourNameGuide.pdf"
+                                    >
+                                        <FormattedMessage id="hoc.facilitatorGuide" />
                                     </a>
                                 </div>
                             </div>
                             <div className="hoc-section-resource">
                                 <img className="hoc-section-resource-img"
-                                     src="/svgs/tips-card.svg"
-                                     alt="" />
+                                    src="/svgs/tips-card.svg"
+                                    alt=""
+                                />
                                 <div className="hoc-section-resource-info">
                                     <h5 className="hoc-section-resource-info-header">
-                                        <FormattedMessage id='hoc.tipsMakeMusicTitle' />
+                                        <FormattedMessage id="hoc.tipsMakeItFlyTitle" />
                                     </h5>
                                     <a className="hoc-section-resource-anchor"
-                                       href="/scratchr2/static/pdfs/help/MusicCards.pdf">
-                                        <FormattedMessage id='hoc.activityCards' />
+                                        href="/scratchr2/static/pdfs/help/FlyCards.pdf"
+                                    >
+                                        <FormattedMessage id="hoc.activityCards" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="hoc-section-resource">
+                                <img className="hoc-section-resource-img"
+                                    src="/svgs/tips-card.svg"
+                                    alt=""
+                                />
+                                <div className="hoc-section-resource-info">
+                                    <h5 className="hoc-section-resource-info-header">
+                                        <FormattedMessage id="hoc.tipsMakeMusicTitle" />
+                                    </h5>
+                                    <a className="hoc-section-resource-anchor"
+                                        href="/scratchr2/static/pdfs/help/MusicCards.pdf"
+                                    >
+                                        <FormattedMessage id="hoc.activityCards" />
                                     </a>
                                 </div>
                             </div>
@@ -167,27 +177,28 @@ var Hoc = React.createClass({
                         <section className="hoc-section">
                             <div className="hoc-section-column mod-split">
                                 <h3>
-                                    <FormattedMessage id='hoc.helpScratch' />
+                                    <FormattedMessage id="hoc.helpScratch" />
                                 </h3>
                                 <p className="hoc-section-paragraph">
-                                    <FormattedHTMLMessage id='hoc.helpScratchDescription' />
+                                    <FormattedHTMLMessage id="hoc.helpScratchDescription" />
                                 </p>
                             </div>
                             <div className="hoc-section-column mod-split">
                                 <img className="hoc-section-column-img"
-                                     src="/images/hoc/tips-test-animation.gif"
-                                     alt="Tips Window Animation" />
+                                    src="/images/hoc/tips-test-animation.gif"
+                                    alt="Tips Window Animation"
+                                />
                             </div>
                         </section>
 
                         <section className="hoc-section">
                             <div className="hoc-section-column">
                                 <h3>
-                                    <FormattedMessage id='hoc.moreActivities' />
+                                    <FormattedMessage id="hoc.moreActivities" />
                                 </h3>
                                 <p className="hoc-section-paragraph">
-                                    <FormattedHTMLMessage id='hoc.moreDescription' />
-                                 </p>
+                                    <FormattedHTMLMessage id="hoc.moreDescription" />
+                                </p>
                             </div>
 
                             <FlexRow>
@@ -195,9 +206,10 @@ var Hoc = React.createClass({
                                     <a href="/projects/editor/?tip_bar=getStarted">
                                         <div className="flex-row-card-info">
                                             <img className="flex-row-card-info-img"
-                                                 src="/images/hoc/getting-started-tutorial.jpg" alt="" />
+                                                src="/images/hoc/getting-started-tutorial.jpg" alt=""
+                                            />
                                             <Button>
-                                                <FormattedMessage id='hoc.tipsGetStarted' />
+                                                <FormattedMessage id="hoc.tipsGetStarted" />
                                             </Button>
                                         </div>
                                     </a>
@@ -207,10 +219,11 @@ var Hoc = React.createClass({
                                     <a href="/hide/">
                                         <div className="flex-row-card-info">
                                             <img className="flex-row-card-info-img"
-                                                 src="/images/hoc/hide-seek-tutorial.jpg"
-                                                 alt="" />
+                                                src="/images/hoc/hide-seek-tutorial.jpg"
+                                                alt=""
+                                            />
                                             <Button>
-                                                <FormattedMessage id='hoc.tipsHideAndSeekTitle' />
+                                                <FormattedMessage id="hoc.tipsHideAndSeekTitle" />
                                             </Button>
                                         </div>
                                     </a>
@@ -220,10 +233,11 @@ var Hoc = React.createClass({
                                     <a href="/projects/editor/?tip_bar=dance">
                                         <div className="flex-row-card-info">
                                             <img className="flex-row-card-info-img"
-                                                 src="/images/hoc/dance-tutorial.jpg"
-                                                 alt="" />
+                                                src="/images/hoc/dance-tutorial.jpg"
+                                                alt=""
+                                            />
                                             <Button>
-                                                <FormattedMessage id='hoc.tipsDanceTitle' />
+                                                <FormattedMessage id="hoc.tipsDanceTitle" />
                                             </Button>
                                         </div>
                                     </a>
@@ -234,22 +248,23 @@ var Hoc = React.createClass({
                         <section className="hoc-section">
                             <div className="hoc-section-column">
                                 <h3>
-                                    <FormattedMessage id='hoc.addToStudios' />
+                                    <FormattedMessage id="hoc.addToStudios" />
                                 </h3>
                                 <p className="hoc-section-paragraph">
-                                    <FormattedHTMLMessage id='hoc.addToStudiosDescription' />
-                                 </p>
+                                    <FormattedHTMLMessage id="hoc.addToStudiosDescription" />
+                                </p>
                             </div>
 
                             <FlexRow className="mod-studio">
                                 <div className="hoc-section-studio">
                                     <img className="hoc-section-studio-img"
-                                         src="/svgs/studio.svg"
-                                         alt="" />
+                                        src="/svgs/studio.svg"
+                                        alt=""
+                                    />
                                     <div className="hoc-section-studio-info">
                                         <a href="/studios/432299/">
                                             <h5 className="hoc-section-studio-info-header">
-                                                <FormattedMessage id='hoc.tipsAnimateYourNameTitle' />
+                                                <FormattedMessage id="hoc.tipsAnimateYourNameTitle" />
                                             </h5>
                                         </a>
                                     </div>
@@ -257,12 +272,13 @@ var Hoc = React.createClass({
 
                                 <div className="hoc-section-studio">
                                     <img className="hoc-section-studio-img"
-                                         src="/svgs/studio.svg"
-                                         alt="" />
+                                        src="/svgs/studio.svg"
+                                        alt=""
+                                    />
                                     <div className="hoc-section-studio-info">
                                         <a href="/studios/1999784/">
                                             <h5 className="hoc-section-studio-info-header">
-                                                <FormattedMessage id='hoc.tipsMakeMusicTitle' />
+                                                <FormattedMessage id="hoc.tipsMakeMusicTitle" />
                                             </h5>
                                         </a>
                                     </div>
@@ -270,12 +286,13 @@ var Hoc = React.createClass({
 
                                 <div className="hoc-section-studio">
                                     <img className="hoc-section-studio-img"
-                                         src="/svgs/studio.svg"
-                                         alt="" />
+                                        src="/svgs/studio.svg"
+                                        alt=""
+                                    />
                                     <div className="hoc-section-studio-info">
                                         <a href="/studios/2050750/">
                                             <h5 className="hoc-section-studio-info-header">
-                                                <FormattedMessage id='hoc.tipsMakeItFlyTitle' />
+                                                <FormattedMessage id="hoc.tipsMakeItFlyTitle" />
                                             </h5>
                                         </a>
                                     </div>
@@ -287,45 +304,52 @@ var Hoc = React.createClass({
                     <section className="hoc-section">
                         <h3>
                             <FormattedMessage
-                                id='general.collaborators'
-                                defaultMessage={'Collaborators'} />
+                                id="general.collaborators"
+                                defaultMessage={'Collaborators'}
+                            />
                         </h3>
                         <div className="hoc-section-logos">
                             <a href="http://scratched.gse.harvard.edu/">
                                 <img className="hoc-section-logos-img"
-                                     src="/images/hoc/scratchEd-logo.png"
-                                     alt="ScratchEd" />
+                                    src="/images/hoc/scratchEd-logo.png"
+                                    alt="ScratchEd"
+                                />
                             </a>
                             <a href="https://code.org/">
                                 <img className="hoc-section-logos-img"
-                                     src="/images/hoc/code-org-logo.png"
-                                     alt="code.org" />
+                                    src="/images/hoc/code-org-logo.png"
+                                    alt="code.org"
+                                />
                             </a>
                             <a href="http://www.cartoonnetwork.com/">
                                 <img className="hoc-section-logos-img"
-                                     src="/images/hoc/cn-logo.png"
-                                     alt="Cartoon Network" />
+                                    src="/images/hoc/cn-logo.png"
+                                    alt="Cartoon Network"
+                                />
                             </a>
                             <a href="http://www.madewithcode.com/">
                                 <img className="hoc-section-logos-img"
-                                     src="/images/hoc/made-with-code-logo.png"
-                                     alt="Made with Code" />
+                                    src="/images/hoc/made-with-code-logo.png"
+                                    alt="Made with Code"
+                                />
                             </a>
                             <a href="http://www.paalive.org/">
                                 <img className="hoc-section-logos-img"
-                                     src="/images/hoc/paa-logo.png"
-                                     alt="Progressive Arts Alliance" />
+                                    src="/images/hoc/paa-logo.png"
+                                    alt="Progressive Arts Alliance"
+                                />
                             </a>
                             <a href="http://www.catrobat.org/">
                                 <img className="hoc-section-logos-img"
-                                     src="/images/hoc/pocketcode-logo.png"
-                                     alt="Pocket Code" />
+                                    src="/images/hoc/pocketcode-logo.png"
+                                    alt="Pocket Code"
+                                />
                             </a>
                         </div>
 
                         <div className="hoc-section-trademark">
                             <p className="hoc-section-paragraph legal">
-                                <FormattedHTMLMessage id='hoc.officialNotice' />
+                                <FormattedHTMLMessage id="hoc.officialNotice" />
                             </p>
                         </div>
                     </section>

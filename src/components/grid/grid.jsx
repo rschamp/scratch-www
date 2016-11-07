@@ -33,32 +33,33 @@ var Grid = React.createClass({
                         if (this.props.itemType == 'projects') {
                             return (
                                 <Thumbnail key={item.id}
-                                           showLoves={this.props.showLoves}
-                                           showFavorites={this.props.showFavorites}
-                                           showRemixes={this.props.showRemixes}
-                                           showViews={this.props.showViews}
-                                           showAvatar={this.props.showAvatar}
-                                           type={'project'}
-                                           href={href}
-                                           title={item.title}
-                                           src={item.image}
-                                           avatar={'https://cdn2.scratch.mit.edu/get_image/user/'
+                                    showLoves={this.props.showLoves}
+                                    showFavorites={this.props.showFavorites}
+                                    showRemixes={this.props.showRemixes}
+                                    showViews={this.props.showViews}
+                                    showAvatar={this.props.showAvatar}
+                                    type={'project'}
+                                    href={href}
+                                    title={item.title}
+                                    src={item.image}
+                                    avatar={'https://cdn2.scratch.mit.edu/get_image/user/'
                                                + item.author.id + '_32x32.png'}
-                                           creator={item.author.username}
-                                           loves={item.stats.loves}
-                                           favorites={item.stats.favorites}
-                                           remixes={item.stats.remixes}
-                                           views={item.stats.views}  />
+                                    creator={item.author.username}
+                                    loves={item.stats.loves}
+                                    favorites={item.stats.favorites}
+                                    remixes={item.stats.remixes}
+                                    views={item.stats.views}
+                                />
                             );
-                        }
-                        else {
+                        } else {
                             return (
                                 <Thumbnail key={item.id}
-                                           type={'gallery'}
-                                           href={href}
-                                           title={item.title}
-                                           src={item.image}
-                                           owner={item.owner}  />
+                                    type={'gallery'}
+                                    href={href}
+                                    title={item.title}
+                                    src={item.image}
+                                    owner={item.owner}
+                                />
                             );
                         }
                     }.bind(this))}

@@ -3,7 +3,7 @@ var connect = require('react-redux').connect;
 var React = require('react');
 var render = require('../../lib/render.jsx');
 
-var Deck = require ('../../components/deck/deck.jsx');
+var Deck = require('../../components/deck/deck.jsx');
 var TeacherApprovalStep = require('../../components/registration/steps.jsx').TeacherApprovalStep;
 
 require('./teacherwaitingroom.scss');

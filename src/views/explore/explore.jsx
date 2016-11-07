@@ -29,7 +29,7 @@ var Explore = injectIntl(React.createClass({
             music: 'music',
             stories: 'stories'
         };
-        var typeOptions = ['projects','studios'];
+        var typeOptions = ['projects', 'studios'];
         var modeOptions = ['trending', 'popular', 'recent', ''];
 
         var pathname = window.location.pathname.toLowerCase();
@@ -78,7 +78,7 @@ var Explore = injectIntl(React.createClass({
         }, function (err, body) {
             if (!err) {
                 var loadedSoFar = this.state.loaded;
-                Array.prototype.push.apply(loadedSoFar,body);
+                Array.prototype.push.apply(loadedSoFar, body);
                 this.setState({loaded: loadedSoFar});
                 var currentOffset = this.state.offset + this.props.loadNumber;
                 this.setState({offset: currentOffset});
@@ -134,7 +134,7 @@ var Explore = injectIntl(React.createClass({
 
         return (
             <div>
-                <div className='outer'>
+                <div className="outer">
                     <TitleBanner className="masthead">
                         <div className="inner">
                             <h1>Explore</h1>
@@ -145,7 +145,7 @@ var Explore = injectIntl(React.createClass({
                         {this.getTab('studios')}
                     </Tabs>
                     <div className="sort-controls">
-                        <SubNavigation className='categories'>
+                        <SubNavigation className="categories">
                             {this.getBubble('all')}
                             {this.getBubble('animations')}
                             {this.getBubble('art')}
@@ -153,27 +153,29 @@ var Explore = injectIntl(React.createClass({
                             {this.getBubble('music')}
                             {this.getBubble('stories')}
                         </SubNavigation>
-                        <Form className='sort-mode'>
+                        <Form className="sort-mode">
                             <Select name="sort"
-                                    options={[
+                                options={[
                                         {value: 'trending', label: 'Trending'},
                                         {value: 'popular', label: 'Popular'},
                                         {value: 'recent', label: 'Recent'}
-                                    ]}
-                                    value={this.props.mode}
-                                    onChange={this.changeSortMode}/>
+                                ]}
+                                value={this.props.mode}
+                                onChange={this.changeSortMode}
+                            />
                         </Form>
                     </div>
-                    <div id='projectBox' key='projectBox'>
+                    <div id="projectBox" key="projectBox">
                         <Grid items={this.state.loaded}
-                              itemType={this.props.itemType}
-                              cards={true}
-                              showLoves={false}
-                              showFavorites={false}
-                              showViews={false}
-                              showAvatar={true}/>
-                          <Button onClick={this.getExploreMore} className="white">
-                            <FormattedMessage id='general.loadMore' />
+                            itemType={this.props.itemType}
+                            cards
+                            showLoves={false}
+                            showFavorites={false}
+                            showViews={false}
+                            showAvatar
+                        />
+                        <Button onClick={this.getExploreMore} className="white">
+                            <FormattedMessage id="general.loadMore" />
                         </Button>
                     </div>
                 </div>

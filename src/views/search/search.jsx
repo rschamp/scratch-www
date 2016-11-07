@@ -79,19 +79,19 @@ var Search = injectIntl(React.createClass({
     },
     getTab: function (type) {
         var term = this.props.searchTerm.split(' ').join('+');
-        var allTab = <a href={'/search/' + type + '?q=' + term + '/'}>
-                        <li>
-                            <img src={'/svgs/tabs/' + type + '-inactive.svg'} className={'tab-icon ' + type} />
-                            <FormattedMessage id={'general.' + type} />
-                        </li>
-                    </a>;
+        var allTab = (<a href={'/search/' + type + '?q=' + term + '/'}>
+            <li>
+                <img src={'/svgs/tabs/' + type + '-inactive.svg'} className={'tab-icon ' + type} />
+                <FormattedMessage id={'general.' + type} />
+            </li>
+        </a>);
         if (this.props.tab == type) {
-            allTab = <a href={'/search/' + type + '?q=' + term + '/'}>
-                        <li className='active'>
-                            <img src={'/svgs/tabs/' + type + '-active.svg'} className={'tab-icon ' + type} />
-                            <FormattedMessage id={'general.' + type} />
-                        </li>
-                    </a>;
+            allTab = (<a href={'/search/' + type + '?q=' + term + '/'}>
+                <li className="active">
+                    <img src={'/svgs/tabs/' + type + '-active.svg'} className={'tab-icon ' + type} />
+                    <FormattedMessage id={'general.' + type} />
+                </li>
+            </a>);
         }
         return allTab;
     },
@@ -100,38 +100,40 @@ var Search = injectIntl(React.createClass({
 
         return (
             <div>
-                <div className='outer'>
-                        <TitleBanner className="masthead">
-                            <div className="inner">
-                                <h1>Search</h1>
-                                <div className="search">
-                                    <Form onSubmit={this.onSearchSubmit}>
-                                        <Button type="submit" className="btn-search" />
-                                        <Input type="text"
-                                               aria-label={formatMessage({id: 'general.search'})}
-                                               placeholder={formatMessage({id: 'general.search'})}
-                                               value={decodeURI(this.props.searchTerm)}
-                                               name="q" />
-                                    </Form>
-                                </div>
+                <div className="outer">
+                    <TitleBanner className="masthead">
+                        <div className="inner">
+                            <h1>Search</h1>
+                            <div className="search">
+                                <Form onSubmit={this.onSearchSubmit}>
+                                    <Button type="submit" className="btn-search" />
+                                    <Input type="text"
+                                        aria-label={formatMessage({id: 'general.search'})}
+                                        placeholder={formatMessage({id: 'general.search'})}
+                                        value={decodeURI(this.props.searchTerm)}
+                                        name="q"
+                                    />
+                                </Form>
                             </div>
-                        </TitleBanner>
-                        <Tabs>
-                            {this.getTab('projects')}
-                            {this.getTab('studios')}
-                        </Tabs>
-                        <div id='projectBox' key='projectBox'>
-                        <Grid items={this.state.loaded}
-                              itemType={this.props.tab}
-                              cards={true}
-                              showAvatar={true}
-                              showLoves={false}
-                              showFavorites={false}
-                              showViews={false} />
-                         <Button onClick={this.getSearchMore} className="white">
-                            <FormattedMessage id='general.loadMore' />
-                        </Button>
                         </div>
+                    </TitleBanner>
+                    <Tabs>
+                        {this.getTab('projects')}
+                        {this.getTab('studios')}
+                    </Tabs>
+                    <div id="projectBox" key="projectBox">
+                        <Grid items={this.state.loaded}
+                            itemType={this.props.tab}
+                            cards
+                            showAvatar
+                            showLoves={false}
+                            showFavorites={false}
+                            showViews={false}
+                        />
+                        <Button onClick={this.getSearchMore} className="white">
+                            <FormattedMessage id="general.loadMore" />
+                        </Button>
+                    </div>
                 </div>
             </div>
         );

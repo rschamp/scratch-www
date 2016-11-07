@@ -26,7 +26,8 @@ var Landing = injectIntl(React.createClass({
                             </p>
                             <div className="ted-talk">
                                 <iframe src="https://www.youtube.com/embed/uPSuG063jhA?border=0&wmode=transparent"
-                                    frameBorder="0" allowFullScreen></iframe>
+                                    frameBorder="0" allowFullScreen
+                                />
                             </div>
                         </FlexRow>
                     </div>
@@ -53,17 +54,17 @@ var Landing = injectIntl(React.createClass({
 
                 <div className="inner">
                     <section id="in-practice">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h2><FormattedMessage id="teacherlanding.inPracticeTitle" /></h2>
                         <p className="intro"><FormattedMessage id="teacherlanding.inPracticeIntro" /></p>
                         <FlexRow className="general-usage">
                             <p><FormattedHTMLMessage id="teacherlanding.generalUsageSettings" /></p>
                             <p><FormattedHTMLMessage id="teacherlanding.generalUsageGradeLevels" /></p>
-                            <p><FormattedHTMLMessage id="teacherlanding.generalUsageSubjectAreas"/></p>
+                            <p><FormattedHTMLMessage id="teacherlanding.generalUsageSubjectAreas" /></p>
                         </FlexRow>
                     </section>
                     <section id="resources">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h2><FormattedMessage id="general.resourcesTitle" /></h2>
                         <FlexRow className="educator-community">
                             <div>
@@ -121,7 +122,7 @@ var Landing = injectIntl(React.createClass({
                                 </a>
                             </SubNavigation>
                         </div>
-                        <img src="/images/teachers/teacher-account.png" alt="teacher account" id="teacher-icon"/>
+                        <img src="/images/teachers/teacher-account.png" alt="teacher account" id="teacher-icon" />
                     </div>
                 </div>
             </div>

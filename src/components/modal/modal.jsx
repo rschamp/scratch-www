@@ -42,8 +42,8 @@ var Modal = React.createClass({
     calculateStyle: function () {
         var style = clone(this.props.style, true);
         defaultsDeep(style, defaultStyle);
-        style.content.marginTop = (style.content.height + style.content.padding*2) / -2;
-        style.content.marginLeft = (style.content.width + style.content.padding*2) / -2;
+        style.content.marginTop = (style.content.height + style.content.padding * 2) / -2;
+        style.content.marginLeft = (style.content.width + style.content.padding * 2) / -2;
         return style;
     },
     requestClose: function () {
@@ -52,9 +52,10 @@ var Modal = React.createClass({
     render: function () {
         return (
             <ReactModal ref="modal"
-                        {...this.props}
-                        style={this.calculateStyle()}>
-                <div className="modal-close" onClick={this.requestClose}></div>
+                {...this.props}
+                style={this.calculateStyle()}
+            >
+                <div className="modal-close" onClick={this.requestClose} />
                 {this.props.children}
             </ReactModal>
         );

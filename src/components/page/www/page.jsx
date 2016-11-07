@@ -8,7 +8,7 @@ var Page = React.createClass({
     type: 'Page',
     render: function () {
         var classes = classNames({
-            'staging': process.env.SCRATCH_ENV == 'staging'
+            staging: process.env.SCRATCH_ENV == 'staging'
         });
         return (
             <div className="page">

@@ -32,7 +32,7 @@ module.exports = function (apiKey, serviceId) {
         if (!this.serviceId) {
             return cb('Failed to get latest version. No serviceId configured');
         }
-        var url = '/service/'+ encodeURIComponent(this.serviceId) +'/version';
+        var url = '/service/' + encodeURIComponent(this.serviceId) + '/version';
         this.request('GET', url, function (err, versions) {
             if (err) {
                 return cb('Failed to fetch versions: ' + err);

@@ -9,8 +9,8 @@ var Spinner = React.createClass({
     render: function () {
         return (
             <div className="spinner">
-                {range(1,13).map(function (id) {
-                    return <div className={'circle' + id + ' circle'}></div>;
+                {range(1, 13).map(function (id) {
+                    return <div className={'circle' + id + ' circle'} />;
                 })}
             </div>
         );

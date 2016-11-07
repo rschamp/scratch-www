@@ -24,7 +24,8 @@ var News = React.createClass({
                 className="news"
                 title={this.props.messages['news.scratchNews']}
                 moreTitle={this.props.messages['general.viewAll']}
-                moreHref="/discuss/5/">
+                moreHref="/discuss/5/"
+            >
 
                 <ul>
                     {this.props.items.map(function (item) {
@@ -32,10 +33,10 @@ var News = React.createClass({
                             <li key={item.id}>
                                 <a href={item.url}>
                                     <img src={item.image}
-                                         className="news-image"
-                                         width="53"
-                                         height="53"
-                                         alt=""
+                                        className="news-image"
+                                        width="53"
+                                        height="53"
+                                        alt=""
                                     />
                                     <div className="news-description">
                                         <h4>{item.headline}</h4>

@@ -11,12 +11,12 @@ var Terms = React.createClass({
             <InformationPage title={'Scratch Terms of Use'}>
                 <div className="inner info-inner">
                     <section id="user-agreement">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>1. User Agreement</h3>
                         <p>
                             1.1 These Terms of Use constitute an agreement between
                              you and the Scratch Team that governs your use of{' '}
-                             <a href="https://scratch.mit.edu">scratch.mit.edu</a>{' '}
+                            <a href="https://scratch.mit.edu">scratch.mit.edu</a>{' '}
                              and all associated services, including but not limited
                              to the <a href="http://day.scratch.mit.edu">Scratch Day</a>{' '}
                              and <a href="http://scratchx.org">ScratchX</a> websites
@@ -31,7 +31,7 @@ var Terms = React.createClass({
                         </p>
                         <p>
                             1.2 Your privacy is important to us. Please read our{' '}
-                             <a href="/privacy_policy">Privacy Policy</a>, which identifies
+                            <a href="/privacy_policy">Privacy Policy</a>, which identifies
                              how the Scratch Team uses, collects, and stores information
                              it collects through the Services. By using Scratch, you
                              additionally agree that you are comfortable with Scratch's
@@ -41,7 +41,7 @@ var Terms = React.createClass({
                             1.3 Scratch is open to children and adults of all ages, and
                              we ask that you keep this in mind when using the Scratch
                              services. When you use Scratch, you agree to abide by the{' '}
-                             <a href="/community_guidelines">Scratch Community Guidelines</a>.
+                            <a href="/community_guidelines">Scratch Community Guidelines</a>.
                         </p>
                         <p>
                             1.4 The Scratch Team may change the Terms of Use from time to
@@ -53,7 +53,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="account-creation">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>2. Account Creation and Maintenance</h3>
                         <p>
                             2.1 In order to use some features of the Services, you will need to
@@ -63,7 +63,7 @@ var Terms = React.createClass({
                              personal account, you will be asked to provide certain personal
                              information, such as your email address, gender, birth month and
                              year, and country. Please see Scratch's{' '}
-                             <a href="/privacy_policy">Privacy Policy</a> for Scratch's data
+                            <a href="/privacy_policy">Privacy Policy</a> for Scratch's data
                              retention and usage policies.
                         </p>
                         <p>
@@ -85,11 +85,11 @@ var Terms = React.createClass({
                              (for example, in the event of a loss, theft, or unauthorized disclosure
                              of your password), promptly change your password. If you cannot access
                              your account to change your password, notify us at{' '}
-                             <a href="mailto:help@scratch.mit.edu">help@scratch.mit.edu</a>.
+                            <a href="mailto:help@scratch.mit.edu">help@scratch.mit.edu</a>.
                         </p>
                     </section>
                     <section id="rules-of-usage">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>3. Rules of Usage</h3>
                         <p>
                             3.1 The Scratch Team supports freedom of expression. However, Scratch is
@@ -159,7 +159,7 @@ var Terms = React.createClass({
                         <p>
                             3.6 Commercial use of Scratch, user-generated content, and support
                              materials is permitted under the{' '}
-                             <a href="https://creativecommons.org/licenses/by-sa/2.0/">
+                            <a href="https://creativecommons.org/licenses/by-sa/2.0/">
                              Creative Commons Attribution-ShareAlike 2.0 license</a>. However,
                              the Scratch Team reserves the right to block any commercial use
                              of Scratch that, in the Scratch Team's sole discretion, is harmful
@@ -172,7 +172,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="user-content">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>4. User-Generated Content and Licensing</h3>
                         <p>
                             4.1 For the purposes of the Terms of Use, "user-generated content"
@@ -190,7 +190,7 @@ var Terms = React.createClass({
                         <p>
                             4.3 All user-generated content you submit to Scratch is licensed
                              to and through Scratch under the{' '}
-                             <a href="https://creativecommons.org/licenses/by-sa/2.0/">
+                            <a href="https://creativecommons.org/licenses/by-sa/2.0/">
                              Creative Commons Attribution-ShareAlike 2.0 license</a>. This
                              allows others to view and remix your content. This license also
                              allows the Scratch Team to display, distribute, and reproduce
@@ -236,7 +236,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="scratch-content">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>5. Scratch Content and Licensing</h3>
                         <p>
                             5.1 Except for any user-generated content, the Scratch Team owns and
@@ -252,12 +252,12 @@ var Terms = React.createClass({
                             5.2 Scratch provides support materials, including images, sounds,
                              video, and sample code, to help users build projects. Support materials
                              are licensed under the{' '}
-                             <a href="https://creativecommons.org/licenses/by-sa/2.0/">
+                            <a href="https://creativecommons.org/licenses/by-sa/2.0/">
                              Creative Commons Attribution-ShareAlike 2.0 license</a>. You may also
                              use screenshots of Scratch under the same license. Please note that
                              this does not apply to materials that are also trademarked by the
                              Scratch Team or other parties as described in parts 5.4 and 5.5, below.
-                             <br/>
+                             <br />
                              The Creative Commons Attribution-ShareAlike 2.0 license requires you to
                              attribute any material you use to the original author. When you use
                              Scratch support materials, or screenshots of the Scratch website,
@@ -268,7 +268,7 @@ var Terms = React.createClass({
                         <p>
                             5.3 The source code for Scratch 1.4 is available for download and subject
                              to the copyright notice as indicated on the <a href="/info/faq">Scratch FAQ</a>
-                             {' '}page.
+                            {' '}page.
                         </p>
                         <p>
                             5.4 The Scratch name, Scratch logo, Scratch Day logo, Scratch Cat, and Gobo
@@ -292,22 +292,22 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="dmca">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>6. Digital Millennium Copyright Act (DMCA)</h3>
                         <p>
                             6.1 If you are a copyright holder and believe that content on Scratch
                              violates your rights, you may send a DMCA notification to{' '}
-                             <a href="mailto:copyright@scratch.mit.edu">copyright@scratch.mit.edu</a>.
+                            <a href="mailto:copyright@scratch.mit.edu">copyright@scratch.mit.edu</a>.
                              For more information, including the information that must be included
                              in a DMCA notification, see our full <a href="/DMCA">DMCA Policy</a> and
                              the text of the DMCA,{' '}
-                             <a href="http://www.law.cornell.edu/uscode/text/17/512">17 U.S.C. § 512</a>.
+                            <a href="http://www.law.cornell.edu/uscode/text/17/512">17 U.S.C. § 512</a>.
                         </p>
                         <p>
                             6.2 If you are a Scratch user and you believe that your content did not
                              constitute a copyright violation and was taken down in error, you may
                              send a notification to{' '}
-                             <a href="mailto:copyright@scratch.mit.edu">copyright@scratch.mit.edu</a>.
+                            <a href="mailto:copyright@scratch.mit.edu">copyright@scratch.mit.edu</a>.
                              Please include:
                             <ul>
                                 <li>Your Scratch username and email address;</li>
@@ -321,7 +321,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="termination">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>7. Suspension and Termination of Accounts</h3>
                         <p>
                             7.1 Scratch has the right to suspend your account for violations of the
@@ -337,7 +337,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="third-party">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>8. Third Party Websites</h3>
                         <p>
                             8.1 Content on Scratch, including user-generated content, may include
@@ -349,7 +349,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="indemnification">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>9. Indemnification</h3>
                         <p>
                             You agree to indemnify MIT, the Scratch Team, the Scratch Foundation,
@@ -371,7 +371,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="disclaimer">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>10. Disclaimer of Warranty</h3>
                         <p><b>
                             You acknowledge that you are using Scratch at your own risk. Scratch
@@ -393,7 +393,7 @@ var Terms = React.createClass({
                         </b></p>
                     </section>
                     <section id="liability">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>11. Limitation of Liability</h3>
                         <p><b>
                             The Scratch Entities shall not be liable to you or any third parties
@@ -407,7 +407,7 @@ var Terms = React.createClass({
                         </b></p>
                     </section>
                     <section id="jurisdiction">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>12. Jurisdiction</h3>
                         <p>
                             Scratch is offered by the Scratch Team from its facilities in the United
@@ -417,7 +417,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="choice-of-law">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>13. Choice of Law and Venue</h3>
                         <p>
                             You agree that these Terms of Use, for all purposes, shall be governed
@@ -441,7 +441,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="choice-of-language">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>14. Choice of Language</h3>
                         <p>
                             If the Scratch Team provides you with a translation of the English language
@@ -453,7 +453,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="no-waiver">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>15. No Waiver</h3>
                         <p>
                             No waiver of any term of these Terms of Use shall be deemed a further or
@@ -463,7 +463,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="entire-agreement">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>16. Entire Agreement</h3>
                         <p>
                             This document, together with all appendices, constitutes the entire Terms
@@ -472,7 +472,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="appendix-a">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>Appendix A: Additional Terms for Scratch Day Website</h3>
                         <p>
                             The following additional terms also govern your access to and use of web
@@ -509,7 +509,7 @@ var Terms = React.createClass({
                              (for example, in the event of a loss, theft, or unauthorized disclosure
                              of your password), promptly change your password. If you cannot access
                              your account to change your password, notify us at{' '}
-                             <a href="mailto:scratchday@media.mit.edu">scratchday@media.mit.edu</a>
+                            <a href="mailto:scratchday@media.mit.edu">scratchday@media.mit.edu</a>
                         </p>
                         <p>
                             2.4 The terms set forth in this section apply to the Scratch Day Site.
@@ -525,7 +525,7 @@ var Terms = React.createClass({
                         </p>
                     </section>
                     <section id="appendix-b">
-                        <span className="nav-spacer"></span>
+                        <span className="nav-spacer" />
                         <h3>Appendix B: Additional Terms for ScratchX Website</h3>
                         <p>
                             The following additional terms also govern your access to and use of web

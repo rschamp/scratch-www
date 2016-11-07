@@ -42,10 +42,10 @@ var Intro = React.createClass({
     },
     handleJoinClick: function (e) {
         e.preventDefault();
-        this.setState({'registrationOpen': true});
+        this.setState({registrationOpen: true});
     },
     closeRegistration: function () {
-        this.setState({'registrationOpen': false});
+        this.setState({registrationOpen: false});
     },
     completeRegistration: function () {
         this.props.dispatch(sessionActions.refreshSession());
@@ -60,19 +60,20 @@ var Intro = React.createClass({
         return (
             <div className="intro">
                 <div className="content">
-                    <h1 dangerouslySetInnerHTML={{__html: this.props.messages['intro.tagLine']}}>
-                    </h1>
+                    <h1 dangerouslySetInnerHTML={{__html: this.props.messages['intro.tagLine']}} />
                     <div className="sprites">
                         <a className="sprite sprite-1" href="/projects/editor/?tip_bar=getStarted">
                             <img
                                 className="costume costume-1"
                                 src="//cdn.scratch.mit.edu/scratchr2/static/images/cat-a.png"
-                                alt="Scratch Cat" />
+                                alt="Scratch Cat"
+                            />
                             <img
                                 className="costume costume-2"
                                 src="//cdn.scratch.mit.edu/scratchr2/static/images/cat-b.png"
-                                alt="Scratch Cat" />
-                            <div className="circle"></div>
+                                alt="Scratch Cat"
+                            />
+                            <div className="circle" />
                             <div className="text">
                                 {this.props.messages['intro.tryItOut']}
                             </div>
@@ -81,12 +82,14 @@ var Intro = React.createClass({
                             <img
                                 className="costume costume-1"
                                 src="//cdn.scratch.mit.edu/scratchr2/static/images/tera-a.png"
-                                alt="Tera" />
+                                alt="Tera"
+                            />
                             <img
                                 className="costume costume-2"
                                 src="//cdn.scratch.mit.edu/scratchr2/static/images/tera-b.png"
-                                alt="Tera" />
-                            <div className="circle"></div>
+                                alt="Tera"
+                            />
+                            <div className="circle" />
                             <div className="text">
                                 {this.props.messages['intro.seeExamples']}
                             </div>
@@ -95,24 +98,28 @@ var Intro = React.createClass({
                             <img
                                 className="costume costume-1"
                                 src="//cdn.scratch.mit.edu/scratchr2/static/images/gobo-a.png"
-                                alt="Gobo" />
+                                alt="Gobo"
+                            />
                             <img
                                 className="costume costume-2"
                                 src="//cdn.scratch.mit.edu/scratchr2/static/images/gobo-b.png"
-                                alt="Gobo" />
-                            <div className="circle"></div>
+                                alt="Gobo"
+                            />
+                            <div className="circle" />
                             <div className="text">
                                 {this.props.messages['intro.joinScratch']}
                             </div>
                             <div className="text subtext">( it&rsquo;s free )</div>
                         </a>
                         <Registration key="registration"
-                                      isOpen={this.state.registrationOpen}
-                                      onRequestClose={this.closeRegistration}
-                                      onRegistrationDone={this.completeRegistration} />
+                            isOpen={this.state.registrationOpen}
+                            onRequestClose={this.closeRegistration}
+                            onRegistrationDone={this.completeRegistration}
+                        />
                     </div>
                     <div className="description"
-                         dangerouslySetInnerHTML={{__html: this.props.messages['intro.description']}}></div>
+                        dangerouslySetInnerHTML={{__html: this.props.messages['intro.description']}}
+                    />
                     <div className="links">
                         <a href="/about/">
                             {this.props.messages['intro.aboutScratch']}
@@ -126,18 +133,21 @@ var Intro = React.createClass({
                     </div>
                 </div>
                 <div className="video">
-                    <div className="play-button" onClick={this.showVideo}></div>
+                    <div className="play-button" onClick={this.showVideo} />
                     <img src="//cdn.scratch.mit.edu/scratchr2/static/images/hp-video-screenshot.png"
-                         alt="Intro Video" />
+                        alt="Intro Video"
+                    />
                 </div>
                 <Modal
-                        className="video-modal"
-                        isOpen={this.state.videoOpen}
-                        onRequestClose={this.closeVideo}
-                        style={{content:frameProps}}>
+                    className="video-modal"
+                    isOpen={this.state.videoOpen}
+                    onRequestClose={this.closeVideo}
+                    style={{content: frameProps}}
+                >
                     <iframe
                         src="//player.vimeo.com/video/65583694?title=0&amp;byline=0&amp;portrait=0"
-                        {...omit(frameProps, 'padding')} />
+                        {...omit(frameProps, 'padding')}
+                    />
                 </Modal>
             </div>
         );

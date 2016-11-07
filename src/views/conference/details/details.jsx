@@ -30,9 +30,9 @@ var ConferenceDetails = React.createClass({
             backUri = backUri + '#' + this.props.conferenceDetails.Day;
         }
         var classes = classNames({
-            'inner': true,
-            'details': true,
-            'fetching': this.props.conferenceDetails.fetching
+            inner: true,
+            details: true,
+            fetching: this.props.conferenceDetails.fetching
         });
         return (
             <div className={classes}>
@@ -71,11 +71,11 @@ var ConferenceDetails = React.createClass({
                         </p>
                     </div>,
                     <div className="back">
-                    {this.props.conferenceDetails.fetching ? [] : [
-                        <a href={backUri}>
+                        {this.props.conferenceDetails.fetching ? [] : [
+                            <a href={backUri}>
                             &larr; Back to Full Schedule
                         </a>
-                    ]}
+                        ]}
                     </div>
                 ]}
             </div>

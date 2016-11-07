@@ -70,15 +70,15 @@ var ConferenceSchedule = React.createClass({
     },
     render: function () {
         var tabClasses = {
-            'thursday': classNames({
-                'selected': (this.props.conferenceSchedule.day === 'thursday')
+            thursday: classNames({
+                selected: (this.props.conferenceSchedule.day === 'thursday')
             }),
-            'friday': classNames({
-                'selected': (this.props.conferenceSchedule.day === 'friday')
+            friday: classNames({
+                selected: (this.props.conferenceSchedule.day === 'friday')
             }),
-            'saturday': classNames({
-                'last': true,
-                'selected': (this.props.conferenceSchedule.day === 'saturday')
+            saturday: classNames({
+                last: true,
+                selected: (this.props.conferenceSchedule.day === 'saturday')
             })
         };
         return (
@@ -90,17 +90,20 @@ var ConferenceSchedule = React.createClass({
                 </TitleBanner>
                 <SubNavigation>
                     <li className={tabClasses.thursday}
-                        onClick={this.handleScheduleChange.bind(this, 'thursday')}>
+                        onClick={this.handleScheduleChange.bind(this, 'thursday')}
+                    >
                         <img src="/svgs/conference/expect/aug4-icon.svg" alt="August 4th Icon" />
                         <span>Thursday</span>
                     </li>
                     <li className={tabClasses.friday}
-                        onClick={this.handleScheduleChange.bind(this, 'friday')}>
+                        onClick={this.handleScheduleChange.bind(this, 'friday')}
+                    >
                         <img src="/svgs/conference/expect/aug5-icon.svg" alt="August 5th Icon" />
                         <span>Friday</span>
                     </li>
                     <li className={tabClasses.saturday}
-                        onClick={this.handleScheduleChange.bind(this, 'saturday')}>
+                        onClick={this.handleScheduleChange.bind(this, 'saturday')}
+                    >
                         <img src="/svgs/conference/expect/aug6-icon.svg" alt="August 6th Icon" />
                         <span>Saturday</span>
                     </li>

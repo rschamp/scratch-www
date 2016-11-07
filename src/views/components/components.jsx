@@ -24,14 +24,16 @@ var Components = React.createClass({
                 <Box
                     title="Some Title"
                     more="Cat Gifs"
-                    moreUrl="http://www.catgifpage.com/">
+                    moreUrl="http://www.catgifpage.com/"
+                >
                     <h4>Things go in here</h4>
                     <p>Lorem ipsum dolor sit amet.</p>
                 </Box>
                 <h1>Carousel Component</h1>
                 <Carousel />
                 <Box
-                    title="Carousel component in a box!">
+                    title="Carousel component in a box!"
+                >
                     <Carousel />
                 </Box>
                 <h1>{'What\'s Happening??'}</h1>

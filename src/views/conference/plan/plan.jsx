@@ -135,7 +135,8 @@ var ConferencePlan = React.createClass({
                             </div>
                             <div className="short">
                                 <img src="/images/conference/plan/transportation.png"
-                                     alt="Transportation Illustration" />
+                                    alt="Transportation Illustration"
+                                />
                             </div>
                         </FlexRow>
                     </section>

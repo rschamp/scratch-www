@@ -42,10 +42,11 @@ var Registration = React.createClass({
         };
         return (
             <Modal
-                    isOpen={this.props.isOpen}
-                    onRequestClose={this.props.onRequestClose}
-                    className="registration"
-                    style={{content:frameProps}}>
+                isOpen={this.props.isOpen}
+                onRequestClose={this.props.onRequestClose}
+                className="registration"
+                style={{content: frameProps}}
+            >
                 <iframe ref="registrationIframe" src="/accounts/standalone-registration/" {...frameProps} />
             </Modal>
         );

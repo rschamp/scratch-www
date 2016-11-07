@@ -30,7 +30,8 @@ module.exports = React.createClass({
         };
         return (
             <div {... this.props}
-                 className={classNames('progression', this.props.className)}>
+                className={classNames('progression', this.props.className)}
+            >
                 {React.Children.map(this.props.children, function (child, id) {
                     if (id === this.props.step) {
                         return React.cloneElement(child, childProps);

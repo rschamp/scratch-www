@@ -20,11 +20,11 @@ tap.test('spotCheckCardStrings', function (t) {
     var idsWithICU = localeCompare.idToICUMap('cards', ids);
     var icuWithIds = localeCompare.icuToIdMap('cards', ids);
     var md5WithIds = localeCompare.getMD5Map(icuWithIds);
-    var keysToCheck = Object.keys(merge(viewLocales['cards']['en'])).sort();
+    var keysToCheck = Object.keys(merge(viewLocales.cards.en)).sort();
     for (var i in isoCodes) {
         var translations = localeCompare.getTranslationsForLanguage(isoCodes[i], idsWithICU, md5WithIds);
         t.same(
-            Object.keys(translations['cards'][isoCodes[i]]).sort(),
+            Object.keys(translations.cards[isoCodes[i]]).sort(),
             keysToCheck,
             'check Cards keys for language ' + isoCodes[i]
         );

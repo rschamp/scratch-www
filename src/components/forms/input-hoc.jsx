@@ -12,7 +12,8 @@ module.exports = function InputComponentMixin (Component) {
         render: function () {
             return (
                 <Component help={this.props.required ? null : this.props.messages['general.notRequired']}
-                           {...this.props} />
+                    {...this.props}
+                />
             );
         }
     });

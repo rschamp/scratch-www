@@ -47,7 +47,7 @@ var getCountryOptions = function (intl, defaultCountry) {
             if (a.value === defaultCountry) return -1;
             if (b.value === defaultCountry) return 1;
             return 0;
-        }.bind(this));
+        });
     }
     return options;
 };
@@ -163,8 +163,9 @@ module.exports = {
                             <intl.FormattedMessage id="registration.usernameStepDescription" />
                         )}
                         {this.props.tooltip ? (
-                             <Tooltip title={'?'}
-                                 tipContent={this.props.tooltip} />
+                            <Tooltip title={'?'}
+                                tipContent={this.props.tooltip}
+                            />
                         ) : (
                             null
                         )}
@@ -176,60 +177,64 @@ module.exports = {
                                     <b>{formatMessage({id: 'registration.createUsername'})}</b>
                                     {this.props.usernameHelp ? (
                                         <p className="help-text">{this.props.usernameHelp}</p>
-                                    ):(
+                                    ) : (
                                         null
                                     )}
                                 </div>
                                 <Input className={this.state.validUsername}
-                                       type="text"
-                                       name="user.username"
-                                       onBlur={this.onUsernameBlur}
-                                       validations={{
-                                           matchRegexp: /^[\w-]*$/,
-                                           minLength: 3,
-                                           maxLength: 20
-                                       }}
-                                       validationErrors={{
-                                           matchRegexp: formatMessage({
-                                               id: 'registration.validationUsernameRegexp'
-                                           }),
-                                           minLength: formatMessage({
-                                               id: 'registration.validationUsernameMinLength'
-                                           }),
-                                           maxLength: formatMessage({
-                                               id: 'registration.validationUsernameMaxLength'
-                                           })
-                                       }}
-                                       required />
+                                    type="text"
+                                    name="user.username"
+                                    onBlur={this.onUsernameBlur}
+                                    validations={{
+                                        matchRegexp: /^[\w-]*$/,
+                                        minLength: 3,
+                                        maxLength: 20
+                                    }}
+                                    validationErrors={{
+                                        matchRegexp: formatMessage({
+                                            id: 'registration.validationUsernameRegexp'
+                                        }),
+                                        minLength: formatMessage({
+                                            id: 'registration.validationUsernameMinLength'
+                                        }),
+                                        maxLength: formatMessage({
+                                            id: 'registration.validationUsernameMaxLength'
+                                        })
+                                    }}
+                                    required
+                                />
                             </div>
                             <Input label={formatMessage({id: 'general.password'})}
-                                   type={this.state.showPassword ? 'text' : 'password'}
-                                   name="user.password"
-                                   validations={{
-                                       minLength: 6,
-                                       notEquals: 'password',
-                                       notEqualsField: 'user.username'
-                                   }}
-                                   validationErrors={{
-                                       minLength: formatMessage({
-                                           id: 'registration.validationPasswordLength'
-                                       }),
-                                       notEquals: formatMessage({
-                                           id: 'registration.validationPasswordNotEquals'
-                                       }),
-                                       notEqualsField: formatMessage({
-                                           id: 'registration.validationPasswordNotUsername'
-                                       })
-                                   }}
-                                   required />
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                name="user.password"
+                                validations={{
+                                    minLength: 6,
+                                    notEquals: 'password',
+                                    notEqualsField: 'user.username'
+                                }}
+                                validationErrors={{
+                                    minLength: formatMessage({
+                                        id: 'registration.validationPasswordLength'
+                                    }),
+                                    notEquals: formatMessage({
+                                        id: 'registration.validationPasswordNotEquals'
+                                    }),
+                                    notEqualsField: formatMessage({
+                                        id: 'registration.validationPasswordNotUsername'
+                                    })
+                                }}
+                                required
+                            />
                             <Checkbox label={formatMessage({id: 'registration.showPassword'})}
-                                      value={this.state.showPassword}
-                                      onChange={this.onChangeShowPassword}
-                                      help={null}
-                                      name="showPassword" />
+                                value={this.state.showPassword}
+                                onChange={this.onChangeShowPassword}
+                                help={null}
+                                name="showPassword"
+                            />
                             <GeneralError name="all" />
                             <NextStepButton waiting={this.props.waiting || this.state.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -261,38 +266,42 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="registration.choosePasswordStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.choosePasswordStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.choosePasswordStepTooltip'})}
+                        />
                     </p>
 
                     <Card>
                         <Form onValidSubmit={this.props.onNextStep}>
                             <Input label={formatMessage({id: 'registration.newPassword'})}
-                                   type={this.state.showPassword ? 'text' : 'password'}
-                                   name="user.password"
-                                   validations={{
-                                       minLength: 6,
-                                       notEquals: 'password',
-                                       notEqualsUsername: this.props.username
-                                   }}
-                                   validationErrors={{
-                                       minLength: formatMessage({
-                                           id: 'registration.validationPasswordLength'
-                                       }),
-                                       notEquals: formatMessage({
-                                           id: 'registration.validationPasswordNotEquals'
-                                       }),
-                                       notEqualsUsername: formatMessage({
-                                           id: 'registration.validationPasswordNotUsername'
-                                       })
-                                   }}
-                                   required />
+                                type={this.state.showPassword ? 'text' : 'password'}
+                                name="user.password"
+                                validations={{
+                                    minLength: 6,
+                                    notEquals: 'password',
+                                    notEqualsUsername: this.props.username
+                                }}
+                                validationErrors={{
+                                    minLength: formatMessage({
+                                        id: 'registration.validationPasswordLength'
+                                    }),
+                                    notEquals: formatMessage({
+                                        id: 'registration.validationPasswordNotEquals'
+                                    }),
+                                    notEqualsUsername: formatMessage({
+                                        id: 'registration.validationPasswordNotUsername'
+                                    })
+                                }}
+                                required
+                            />
                             <Checkbox label={formatMessage({id: 'registration.showPassword'})}
-                                      value={this.state.showPassword}
-                                      onChange={this.onChangeShowPassword}
-                                      help={null}
-                                      name="showPassword" />
+                                value={this.state.showPassword}
+                                onChange={this.onChangeShowPassword}
+                                help={null}
+                                name="showPassword"
+                            />
                             <NextStepButton waiting={this.props.waiting || this.state.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -343,50 +352,58 @@ module.exports = {
                             <intl.FormattedMessage id="registration.personalStepDescription" />
                         }
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.props.onNextStep}>
                             <Select label={formatMessage({id: 'general.birthMonth'})}
-                                    name="user.birth.month"
-                                    options={this.getMonthOptions()}
-                                    required />
+                                name="user.birth.month"
+                                options={this.getMonthOptions()}
+                                required
+                            />
                             <Select label={formatMessage({id: 'general.birthYear'})}
-                                    name="user.birth.year"
-                                    options={this.getYearOptions()} required />
+                                name="user.birth.year"
+                                options={this.getYearOptions()} required
+                            />
                             <RadioGroup label={formatMessage({id: 'general.gender'})}
-                                        name="user.gender"
-                                        onChange={this.onChooseGender}
-                                        options={[
+                                name="user.gender"
+                                onChange={this.onChooseGender}
+                                options={[
                                             {value: 'female', label: formatMessage({id: 'general.female'})},
                                             {value: 'male', label: formatMessage({id: 'general.male'})},
                                             {value: 'other', label: ''}
-                                        ]}
-                                        required />
+                                ]}
+                                required
+                            />
                             <div className="gender-input">
                                 <Input name="user.genderOther"
-                                       type="text"
-                                       validations={{
-                                           maxLength: 25
-                                       }}
-                                       validationErrors={{
-                                           maxLength: formatMessage({
-                                               id: 'registration.validationMaxLength'
-                                           })
-                                       }}
-                                       disabled={this.state.otherDisabled}
-                                       required={!this.state.otherDisabled}
-                                       help={null} />
+                                    type="text"
+                                    validations={{
+                                        maxLength: 25
+                                    }}
+                                    validationErrors={{
+                                        maxLength: formatMessage({
+                                            id: 'registration.validationMaxLength'
+                                        })
+                                    }}
+                                    disabled={this.state.otherDisabled}
+                                    required={!this.state.otherDisabled}
+                                    help={null}
+                                />
                             </div>
                             <Select label={formatMessage({id: 'general.country'})}
-                                    name="user.country"
-                                    options={getCountryOptions(this.props.intl, DEFAULT_COUNTRY)}
-                                    required />
+                                name="user.country"
+                                options={getCountryOptions(this.props.intl, DEFAULT_COUNTRY)}
+                                required
+                            />
                             <Checkbox className="demographics-checkbox-is-robot"
-                                      label="I'm a robot!"
-                                      name="user.isRobot" />
+                                label="I'm a robot!"
+                                name="user.isRobot"
+                            />
                             <NextStepButton waiting={this.props.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -410,36 +427,40 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="teacherRegistration.nameStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.props.onNextStep}>
                             <Input label={formatMessage({id: 'teacherRegistration.firstName'})}
-                                   type="text"
-                                   name="user.name.first"
-                                   validations={{
-                                       maxLength: 50
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required />
+                                type="text"
+                                name="user.name.first"
+                                validations={{
+                                    maxLength: 50
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             <Input label={formatMessage({id: 'teacherRegistration.lastName'})}
-                                   type="text"
-                                   name="user.name.last"
-                                   validations={{
-                                       maxLength: 50
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required />
+                                type="text"
+                                name="user.name.last"
+                                validations={{
+                                    maxLength: 50
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             <NextStepButton waiting={this.props.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -457,7 +478,7 @@ module.exports = {
         onValidSubmit: function (formData, reset, invalidate) {
             if (!formData.phone || formData.phone.national_number === '+') {
                 return invalidate({
-                    'phone': this.props.intl.formatMessage({id: 'teacherRegistration.validationPhoneNumber'})
+                    phone: this.props.intl.formatMessage({id: 'teacherRegistration.validationPhoneNumber'})
                 });
             }
             return this.props.onNextStep(formData);
@@ -472,22 +493,26 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="teacherRegistration.phoneStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.onValidSubmit}>
                             <PhoneInput label={formatMessage({id: 'teacherRegistration.phoneNumber'})}
-                                        name="phone"
-                                        defaultCountry={this.props.defaultCountry}
-                                        required />
+                                name="phone"
+                                defaultCountry={this.props.defaultCountry}
+                                required
+                            />
                             <Checkbox label={formatMessage({id: 'teacherRegistration.phoneConsent'})}
-                                      name="phoneConsent"
-                                      required="isFalse"
-                                      validationErrors={{
-                                          isFalse: formatMessage({id: 'teacherRegistration.validationPhoneConsent'})
-                                      }} />
+                                name="phoneConsent"
+                                required="isFalse"
+                                validationErrors={{
+                                    isFalse: formatMessage({id: 'teacherRegistration.validationPhoneConsent'})
+                                }}
+                            />
                             <NextStepButton waiting={this.props.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -540,68 +565,73 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="teacherRegistration.orgStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.props.onNextStep}>
                             <Input label={formatMessage({id: 'teacherRegistration.organization'})}
-                                   type="text"
-                                   name="organization.name"
-                                   validations={{
-                                       maxLength: 50
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required />
+                                type="text"
+                                name="organization.name"
+                                validations={{
+                                    maxLength: 50
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             <Input label={formatMessage({id: 'teacherRegistration.orgTitle'})}
-                                   type="text"
-                                   name="organization.title"
-                                   validations={{
-                                       maxLength: 50
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required />
+                                type="text"
+                                name="organization.title"
+                                validations={{
+                                    maxLength: 50
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             <div className="organization-type">
                                 <b><intl.FormattedMessage id="teacherRegistration.orgType" /></b>
                                 <p className="help-text">
                                     <intl.FormattedMessage id="teacherRegistration.checkAll" />
                                 </p>
                                 <CheckboxGroup name="organization.type"
-                                               value={[]}
-                                               options={this.getOrganizationOptions()}
-                                               onChange={this.onChooseOrganization}
-                                               validations={{
-                                                   minLength: 1
-                                               }}
-                                               validationErrors={{
-                                                   minLength: formatMessage({
-                                                       id: 'teacherRegistration.validationRequired'
-                                                   })
-                                               }}
-                                               required />
+                                    value={[]}
+                                    options={this.getOrganizationOptions()}
+                                    onChange={this.onChooseOrganization}
+                                    validations={{
+                                        minLength: 1
+                                    }}
+                                    validationErrors={{
+                                        minLength: formatMessage({
+                                            id: 'teacherRegistration.validationRequired'
+                                        })
+                                    }}
+                                    required
+                                />
                             </div>
                             <div className="other-input">
                                 <Input name="organization.other"
-                                       type="text"
-                                       validations={{
-                                           maxLength: 50
-                                       }}
-                                       validationErrors={{
-                                           maxLength: formatMessage({
-                                               id: 'registration.validationMaxLength'
-                                           })
-                                       }}
-                                       disabled={this.state.otherDisabled}
-                                       required={!this.state.otherDisabled}
-                                       help={null}
-                                       placeholder={formatMessage({id: 'general.other'})} />
+                                    type="text"
+                                    validations={{
+                                        maxLength: 50
+                                    }}
+                                    validationErrors={{
+                                        maxLength: formatMessage({
+                                            id: 'registration.validationMaxLength'
+                                        })
+                                    }}
+                                    disabled={this.state.otherDisabled}
+                                    required={!this.state.otherDisabled}
+                                    help={null}
+                                    placeholder={formatMessage({id: 'general.other'})}
+                                />
                             </div>
                             <div className="url-input">
                                 <b><intl.FormattedMessage id="general.website" /></b>
@@ -609,20 +639,22 @@ module.exports = {
                                     <intl.FormattedMessage id="teacherRegistration.notRequired" />
                                 </p>
                                 <Input type="url"
-                                       name="organization.url"
-                                       validations={{
-                                           maxLength: 200
-                                       }}
-                                       validationErrors={{
-                                           maxLength: formatMessage({
-                                               id: 'registration.validationMaxLength'
-                                           })
-                                       }}
-                                       required="isFalse"
-                                       placeholder={'http://'} />
+                                    name="organization.url"
+                                    validations={{
+                                        maxLength: 200
+                                    }}
+                                    validationErrors={{
+                                        maxLength: formatMessage({
+                                            id: 'registration.validationMaxLength'
+                                        })
+                                    }}
+                                    required="isFalse"
+                                    placeholder={'http://'}
+                                />
                             </div>
                             <NextStepButton waiting={this.props.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -671,7 +703,7 @@ module.exports = {
                     return this.props.onNextStep(formData);
                 } else {
                     return invalidate({
-                        'all': this.props.intl.formatMessage({id: 'teacherRegistration.addressValidationError'})
+                        all: this.props.intl.formatMessage({id: 'teacherRegistration.addressValidationError'})
                     });
                 }
             }.bind(this));
@@ -688,57 +720,63 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="teacherRegistration.addressStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.onValidSubmit}>
                             <Select label={formatMessage({id: 'general.country'})}
-                                    name="address.country"
-                                    options={getCountryOptions(this.props.intl)}
-                                    value={this.props.defaultCountry}
-                                    onChange={this.onChangeCountry}
-                                    required />
+                                name="address.country"
+                                options={getCountryOptions(this.props.intl)}
+                                value={this.props.defaultCountry}
+                                onChange={this.onChangeCountry}
+                                required
+                            />
                             <Input label={formatMessage({id: 'teacherRegistration.addressLine1'})}
-                                   type="text"
-                                   name="address.line1"
-                                   validations={{
-                                       maxLength: 100
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required />
+                                type="text"
+                                name="address.line1"
+                                validations={{
+                                    maxLength: 100
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             <Input label={formatMessage({id: 'teacherRegistration.addressLine2'})}
-                                   type="text"
-                                   name="address.line2"
-                                   validations={{
-                                       maxLength: 100
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required="isFalse" />
+                                type="text"
+                                name="address.line2"
+                                validations={{
+                                    maxLength: 100
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required="isFalse"
+                            />
                             <Input label={formatMessage({id: 'teacherRegistration.city'})}
-                                   type="text"
-                                   name="address.city"
-                                   validations={{
-                                       maxLength: 50
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required />
+                                type="text"
+                                name="address.city"
+                                validations={{
+                                    maxLength: 50
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             {stateOptions.length > 2 ?
                                 <Select label={formatMessage({id: 'teacherRegistration.stateProvince'})}
-                                        name="address.state"
-                                        options={stateOptions}
-                                        required /> :
+                                    name="address.state"
+                                    options={stateOptions}
+                                    required
+                                /> :
                                 []
                             }
                             <b className="row-label">
@@ -750,19 +788,21 @@ module.exports = {
                                 </p> : []
                             }
                             <Input type="text"
-                                   name="address.zip"
-                                   validations={{
-                                       maxLength: 10
-                                   }}
-                                   validationErrors={{
-                                       maxLength: formatMessage({
-                                           id: 'registration.validationMaxLength'
-                                       })
-                                   }}
-                                   required={(this.state.countryChoice === 'us') ? true : 'isFalse'} />
+                                name="address.zip"
+                                validations={{
+                                    maxLength: 10
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'registration.validationMaxLength'
+                                    })
+                                }}
+                                required={(this.state.countryChoice === 'us') ? true : 'isFalse'}
+                            />
                             <GeneralError name="all" />
                             <NextStepButton waiting={this.props.waiting || this.state.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -799,27 +839,31 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="teacherRegistration.useScratchStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.props.onNextStep}>
                             <TextArea label={formatMessage({id: 'teacherRegistration.howUseScratch'})}
-                                      name="useScratch"
-                                      className={textAreaClass}
-                                      onChange={this.handleTyping}
-                                      validations={{
-                                          maxLength: this.props.maxCharacters
-                                      }}
-                                      validationErrors={{
-                                          maxLength: formatMessage({
-                                              id: 'teacherRegistration.useScratchMaxLength'
-                                          })
-                                      }}
-                                      required />
+                                name="useScratch"
+                                className={textAreaClass}
+                                onChange={this.handleTyping}
+                                validations={{
+                                    maxLength: this.props.maxCharacters
+                                }}
+                                validationErrors={{
+                                    maxLength: formatMessage({
+                                        id: 'teacherRegistration.useScratchMaxLength'
+                                    })
+                                }}
+                                required
+                            />
                             <CharCount maxCharacters={this.props.maxCharacters}
-                                       currentCharacters={this.state.characterCount} />
+                                currentCharacters={this.state.characterCount}
+                            />
                             <NextStepButton waiting={this.props.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -866,27 +910,31 @@ module.exports = {
                     <p className="description">
                         <intl.FormattedMessage id="teacherRegistration.emailStepDescription" />
                         <Tooltip title={'?'}
-                                 tipContent={formatMessage({id: 'registration.nameStepTooltip'})} />
+                            tipContent={formatMessage({id: 'registration.nameStepTooltip'})}
+                        />
                     </p>
                     <Card>
                         <Form onValidSubmit={this.onValidSubmit}>
                             <Input label={formatMessage({id: 'general.emailAddress'})}
-                                   type="text"
-                                   name="user.email"
-                                   validations="isEmail"
-                                   validationError={formatMessage({id: 'general.validationEmail'})}
-                                   required />
+                                type="text"
+                                name="user.email"
+                                validations="isEmail"
+                                validationError={formatMessage({id: 'general.validationEmail'})}
+                                required
+                            />
                             <Input label={formatMessage({id: 'general.confirmEmail'})}
-                                   type="text"
-                                   name="confirmEmail"
-                                   validations="equalsField:user.email"
-                                   validationErrors={{
-                                       equalsField: formatMessage({id: 'general.validationEmailMatch'})
-                                   }}
-                                   required />
+                                type="text"
+                                name="confirmEmail"
+                                validations="equalsField:user.email"
+                                validationErrors={{
+                                    equalsField: formatMessage({id: 'general.validationEmailMatch'})
+                                }}
+                                required
+                            />
                             <GeneralError name="all" />
                             <NextStepButton waiting={this.props.waiting}
-                                            text={<intl.FormattedMessage id="registration.nextStep" />} />
+                                text={<intl.FormattedMessage id="registration.nextStep" />}
+                            />
                         </Form>
                     </Card>
                     <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -959,7 +1007,8 @@ module.exports = {
                         <Spinner />
                     ] : [
                         <Avatar className="invite-avatar"
-                                src={this.props.classroom.educator.profile.images['50x50']} />,
+                            src={this.props.classroom.educator.profile.images['50x50']}
+                        />,
                         <h2>{this.props.classroom.educator.username}</h2>,
                         <p className="description">
                             {formatMessage({id: 'registration.classroomInviteNewStudentStepDescription'})}
@@ -970,8 +1019,9 @@ module.exports = {
                                 <img className="class-image" src={this.props.classroom.images['250x150']} />
                             </div>
                             <NextStepButton onClick={this.onNextStep}
-                                            waiting={this.props.waiting}
-                                            text={formatMessage({id: 'general.getStarted'})} />
+                                waiting={this.props.waiting}
+                                text={formatMessage({id: 'general.getStarted'})}
+                            />
                         </Card>,
                         <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
                     ]}
@@ -1010,8 +1060,9 @@ module.exports = {
                                 <p><strong>{this.props.classroom.educator.username}</strong></p>
                             </div>
                             <NextStepButton onClick={this.onNextStep}
-                                            waiting={this.props.waiting}
-                                            text={formatMessage({id: 'general.getStarted'})} />
+                                waiting={this.props.waiting}
+                                text={formatMessage({id: 'general.getStarted'})}
+                            />
                         </Card>,
                         <p><a onClick={this.props.onHandleLogOut}>{formatMessage({id: 'registration.notYou'})}</a></p>,
                         <StepNavigation steps={this.props.totalSteps - 1} active={this.props.activeStep} />
@@ -1049,8 +1100,9 @@ module.exports = {
                                 null
                             )}
                             <NextStepButton onClick={this.onNextStep}
-                                            waiting={this.props.waiting}
-                                            text={formatMessage({id: 'registration.goToClass'})} />
+                                waiting={this.props.waiting}
+                                text={formatMessage({id: 'registration.goToClass'})}
+                            />
                         </Card>
                     ]}
                 </Slide>

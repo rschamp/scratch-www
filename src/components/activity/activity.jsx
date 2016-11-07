@@ -30,7 +30,8 @@ var Activity = React.createClass({
         return (
             <Box
                 className="activity"
-                title={formatMessage(defaultMessages.whatsHappening)}>
+                title={formatMessage(defaultMessages.whatsHappening)}
+            >
 
                 {this.props.items && this.props.items.length > 0 ? [
                     <ul key="activity-ul">
@@ -46,7 +47,7 @@ var Activity = React.createClass({
                                     <li key={item.pk}>
                                         <a href={actorProfileUrl}>
                                             <img src={item.actor.thumbnail_url} width="34" height="34" alt="" />
-                                            <p dangerouslySetInnerHTML={{__html: activityMessageHTML}}></p>
+                                            <p dangerouslySetInnerHTML={{__html: activityMessageHTML}} />
                                             <p>
                                                 <span className="stamp">
                                                     <FormattedRelative value={actionDate} />
@@ -63,12 +64,14 @@ var Activity = React.createClass({
                         <h4>
                             <FormattedMessage
                                 id="activity.seeUpdates"
-                                defaultMessage="This is where you will see updates from Scratchers you follow" />
+                                defaultMessage="This is where you will see updates from Scratchers you follow"
+                            />
                         </h4>
                         <a href="/studios/146521/">
                             <FormattedMessage
                                 id="activity.checkOutScratchers"
-                                defaultMessage="Check out some Scratchers you might like to follow" />
+                                defaultMessage="Check out some Scratchers you might like to follow"
+                            />
                         </a>
                     </div>
                 ]}

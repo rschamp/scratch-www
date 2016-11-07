@@ -61,7 +61,7 @@ var StudentCompleteRegistration = intl.injectIntl(React.createClass({
         }, function (err) {
             if (err) return log.error(err);
             window.location = '/';
-        }.bind(this));
+        });
     },
     register: function (formData) {
         this.setState({waiting: true});
@@ -125,24 +125,28 @@ var StudentCompleteRegistration = intl.injectIntl(React.createClass({
                     ) : (
                         <Progression {... this.state}>
                             <Steps.ClassInviteExistingStudentStep classroom={this.state.classroom}
-                                                                  onHandleLogOut={this.handleLogOut}
-                                                                  onNextStep={this.advanceStep}
-                                                                  studentUsername={this.props.studentUsername}
-                                                   waiting={this.state.waiting} />
+                                onHandleLogOut={this.handleLogOut}
+                                onNextStep={this.advanceStep}
+                                studentUsername={this.props.studentUsername}
+                                waiting={this.state.waiting}
+                            />
                             {this.props.must_reset_password ?
                                 <Steps.ChoosePasswordStep onNextStep={this.advanceStep}
-                                                          showPassword={true}
-                                                          waiting={this.state.waiting}
-                                                          username={this.props.studentUsername} />
+                                    showPassword
+                                    waiting={this.state.waiting}
+                                    username={this.props.studentUsername}
+                                />
                             :
                                 []
                             }
                             <Steps.DemographicsStep description={demographicsDescription}
-                                                    onNextStep={this.register}
-                                                    waiting={this.state.waiting} />
+                                onNextStep={this.register}
+                                waiting={this.state.waiting}
+                            />
                             <Steps.ClassWelcomeStep classroom={this.state.classroom}
-                                                    onNextStep={this.goToClass}
-                                                    waiting={this.state.waiting} />
+                                onNextStep={this.goToClass}
+                                waiting={this.state.waiting}
+                            />
                         </Progression>
                     )
                 )}
