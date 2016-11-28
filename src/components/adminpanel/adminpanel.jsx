@@ -5,18 +5,18 @@ var Button = require('../forms/button.jsx');
 
 require('./adminpanel.scss');
 
-var AdminPanel = React.createClass({
-    type: 'AdminPanel',
-    getInitialState: function () {
-        return {
+class AdminPanel extends React.Component{
+    constructor (props) {
+        super(props);
+        this.state = {
             showPanel: false
         };
-    },
-    handleToggleVisibility: function (e) {
+    }
+    handleToggleVisibility (e) {
         e.preventDefault();
         this.setState({showPanel: !this.state.showPanel});
-    },
-    render: function () {
+    }
+    render () {
         // make sure user is present before checking if they're an admin. Don't show anything if user not an admin.
         var showAdmin = false;
         if (this.props.session.session.user) {
@@ -27,7 +27,10 @@ var AdminPanel = React.createClass({
 
         if (this.state.showPanel) {
             return (
-                <div id="admin-panel" className="visible">
+                <div
+                    className="visible"
+                    id="admin-panel"
+                >
                     <span
                         className="toggle"
                         onClick={this.handleToggleVisibility}
@@ -45,8 +48,15 @@ var AdminPanel = React.createClass({
                             <dd>
                                 <ul className="cache-list">
                                     <li>
-                                        <form method="post" action="/scratch_admin/page/clear-anon-cache/">
-                                            <input type="hidden" name="path" value="/" />
+                                        <form
+                                            action="/scratch_admin/page/clear-anon-cache/"
+                                            method="post"
+                                        >
+                                            <input
+                                                name="path"
+                                                type="hidden"
+                                                value="/"
+                                            />
                                             <div className="button-row">
                                                 <span>For anonymous users:</span>
                                                 <Button type="submit">
@@ -61,26 +71,35 @@ var AdminPanel = React.createClass({
                     </div>
                 </div>
             );
-        } else {
-            return (
-                <div id="admin-panel" className="hidden">
-                    <span
-                        className="toggle"
-                        onClick={this.handleToggleVisibility}
-                    >
-
-                        &gt;
-                    </span>
-                </div>
-            );
         }
+
+        return (
+            <div
+                className="hidden"
+                id="admin-panel"
+            >
+                <span
+                    className="toggle"
+                    onClick={this.handleToggleVisibility}
+                >
+                    &gt;
+                </span>
+            </div>
+        );
     }
-});
+}
 
 var mapStateToProps = function (state) {
     return {
         session: state.session
     };
+};
+
+AdminPanel.propTypes = {
+    children: React.PropTypes.node,
+    session: React.PropTypes.shape({
+        session: React.PropTypes.object
+    })
 };
 
 var ConnectedAdminPanel = connect(mapStateToProps)(AdminPanel);

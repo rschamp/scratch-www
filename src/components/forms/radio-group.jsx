@@ -7,17 +7,19 @@ var inputHOC = require('./input-hoc.jsx');
 require('./row.scss');
 require('./radio-group.scss');
 
-var RadioGroup = React.createClass({
-    type: 'RadioGroup',
-    render: function () {
-        var classes = classNames(
-            'radio-group',
-            this.props.className
-        );
-        return (
-            <FRCRadioGroup {... this.props} className={classes} />
-        );
-    }
-});
-
+var RadioGroup = function (props) {
+    var classes = classNames(
+        'radio-group',
+        props.className
+    );
+    return (
+        <FRCRadioGroup
+            {... props}
+            className={classes}
+        />
+    );
+};
+RadioGroup.propTypes = {
+    className: React.PropTypes.string
+};
 module.exports = inputHOC(defaultValidationHOC(RadioGroup));

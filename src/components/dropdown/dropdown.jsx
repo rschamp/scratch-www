@@ -3,15 +3,17 @@ var classNames = require('classnames');
 
 require('./dropdown.scss');
 
-var Dropdown = React.createClass({
-    type: 'Dropdown',
+// @TODO Upgrade react-onclickoutside and use the HOC here with a stateless function
+var Dropdown = React.createClass({ // eslint-disable-line react/prefer-es6-class
+    propTypes: {
+        children: React.PropTypes.node,
+        className: React.PropTypes.string,
+        isOpen: React.PropTypes.bool,
+        onRequestClose: React.PropTypes.func
+    },
     mixins: [
         require('react-onclickoutside')
     ],
-    propTypes: {
-        onRequestClose: React.PropTypes.func,
-        isOpen: React.PropTypes.bool
-    },
     getDefaultProps: function () {
         return {
             as: 'div',
@@ -36,5 +38,4 @@ var Dropdown = React.createClass({
         );
     }
 });
-
 module.exports = Dropdown;

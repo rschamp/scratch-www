@@ -10,13 +10,12 @@ require('./general-error.scss');
  * give it a name, and apply your validation error to
  * the name of the GeneralError component.
  */
-module.exports = Formsy.HOC(React.createClass({
-    render: function () {
-        if (!this.props.showError()) return null;
-        return (
-            <p className="general-error">
-                {this.props.getErrorMessage()}
-            </p>
-        );
-    }
-}));
+var GeneralError = Formsy.HOC(function (props) {
+    if (!props.showError()) return null;
+    return (
+        <p className="general-error">
+            {props.getErrorMessage()}
+        </p>
+    );
+});
+module.exports = GeneralError;

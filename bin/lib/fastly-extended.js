@@ -19,8 +19,8 @@ module.exports = function (apiKey, serviceId) {
      *
      * @return {string}
      */
-    fastly.getFastlyAPIPrefix = function (serviceId, version) {
-        return '/service/' + encodeURIComponent(serviceId) + '/version/' + version;
+    fastly.getFastlyAPIPrefix = function (apiServiceId, version) {
+        return '/service/' + encodeURIComponent(apiServiceId) + '/version/' + version;
     };
 
     /*
@@ -37,10 +37,10 @@ module.exports = function (apiKey, serviceId) {
             if (err) {
                 return cb('Failed to fetch versions: ' + err);
             }
-            var latestVersion = versions.reduce(function (latestVersion, version) {
-                if (!latestVersion) return version;
-                if (version.number > latestVersion.number) return version;
-                return latestVersion;
+            var latestVersion = versions.reduce(function (currentLatestVersion, version) {
+                if (!currentLatestVersion) return version;
+                if (version.number > currentLatestVersion.number) return version;
+                return currentLatestVersion;
             });
             return cb(null, latestVersion);
         });
@@ -63,16 +63,16 @@ module.exports = function (apiKey, serviceId) {
         var postUrl = this.getFastlyAPIPrefix(this.serviceId, version) + '/condition';
         return this.request('PUT', putUrl, condition, function (err, response) {
             if (err && err.statusCode === 404) {
-                this.request('POST', postUrl, condition, function (err, response) {
-                    if (err) {
-                        return cb('Failed while inserting condition \"' + condition.statement + '\": ' + err);
+                this.request('POST', postUrl, condition, function (postErr, postResponse) {
+                    if (postErr) {
+                        return cb('Failed while inserting condition "' + condition.statement + '": ' + postErr);
                     }
-                    return cb(null, response);
+                    return cb(null, postResponse);
                 });
                 return;
             }
             if (err) {
-                return cb('Failed to update condition \"' + condition.statement + '\": ' + err);
+                return cb('Failed to update condition "' + condition.statement + '": ' + err);
             }
             return cb(null, response);
         }.bind(this));
@@ -95,11 +95,11 @@ module.exports = function (apiKey, serviceId) {
         var postUrl = this.getFastlyAPIPrefix(this.serviceId, version) + '/header';
         return this.request('PUT', putUrl, header, function (err, response) {
             if (err && err.statusCode === 404) {
-                this.request('POST', postUrl, header, function (err, response) {
-                    if (err) {
-                        return cb('Failed to insert header: ' + err);
+                this.request('POST', postUrl, header, function (postErr, postResponse) {
+                    if (postErr) {
+                        return cb('Failed to insert header: ' + postErr);
                     }
-                    return cb(null, response);
+                    return cb(null, postResponse);
                 });
                 return;
             }
@@ -127,11 +127,11 @@ module.exports = function (apiKey, serviceId) {
         var postUrl = this.getFastlyAPIPrefix(this.serviceId, version) + '/response_object';
         return this.request('PUT', putUrl, responseObj, function (err, response) {
             if (err && err.statusCode === 404) {
-                this.request('POST', postUrl, responseObj, function (err, response) {
-                    if (err) {
-                        return cb('Failed to insert response object: ' + err);
+                this.request('POST', postUrl, responseObj, function (postErr, postResponse) {
+                    if (postErr) {
+                        return cb('Failed to insert response object: ' + postErr);
                     }
-                    return cb(null, response);
+                    return cb(null, postResponse);
                 });
                 return;
             }

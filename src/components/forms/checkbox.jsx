@@ -7,17 +7,19 @@ var inputHOC = require('./input-hoc.jsx');
 require('./row.scss');
 require('./checkbox.scss');
 
-var Checkbox = React.createClass({
-    type: 'Checkbox',
-    render: function () {
-        var classes = classNames(
-            'checkbox-row',
-            this.props.className
-        );
-        return (
-            <FRCCheckbox rowClassName={classes} {... this.props} />
-        );
-    }
-});
-
+var Checkbox = function (props) {
+    var classes = classNames(
+        'checkbox-row',
+        props.className
+    );
+    return (
+        <FRCCheckbox
+            rowClassName={classes}
+            {... props}
+        />
+    );
+};
+Checkbox.propTypes = {
+    className: React.PropTypes.string
+};
 module.exports = inputHOC(defaultValidationHOC(Checkbox));

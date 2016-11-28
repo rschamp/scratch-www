@@ -1,7 +1,9 @@
 /**
  * Constructor
+ * @param {string} route Route to handle
+ * @returns {Handler} new Handler instance
  */
-function Handler (route) {
+var Handler = function (route) {
     // Handle redirects
     if (route.redirect) {
         return (req, res) => {
@@ -14,10 +16,12 @@ function Handler (route) {
         req.url = url;
         next();
     };
-}
+};
 
 /**
  * Export a new instance
+ * @param {string} route Route to handle
+ * @returns {Handler} instance of Handler for route
  */
 module.exports = function (route) {
     return new Handler(route);

@@ -3,31 +3,27 @@ var React = require('react');
 
 require('./accordion.scss');
 
-var Accordion = React.createClass({
-    type: 'Accordion',
-    getDefaultProps: function () {
-        return {
-            titleAs: 'div',
-            contentAs: 'div'
-        };
-    },
-    getInitialState: function () {
-        return {
+class Accordion extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
             isOpen: false
         };
-    },
-    toggleContent: function () {
+    }
+    handleClick (e) {
+        e.preventDefault();
         this.setState({isOpen: !this.state.isOpen});
-    },
-    render: function () {
+    }
+    render () {
         var classes = classNames({
             content: true,
             open: this.state.isOpen
         });
         return (
             <div className="accordion">
-                <this.props.titleAs className="title"
-                    onClick={this.toggleContent}
+                <this.props.titleAs
+                    className="title"
+                    onClick={this.handleClick}
                 >
                     {this.props.title}
                 </this.props.titleAs>
@@ -37,6 +33,16 @@ var Accordion = React.createClass({
             </div>
         );
     }
-});
+}
+
+Accordion.propTypes = {
+    content: React.PropTypes.node,
+    title: React.PropTypes.string
+};
+
+Accordion.defaultProps = {
+    contentAs: 'div',
+    titleAs: 'div'
+};
 
 module.exports = Accordion;

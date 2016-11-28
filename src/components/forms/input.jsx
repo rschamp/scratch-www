@@ -7,41 +7,42 @@ var inputHOC = require('./input-hoc.jsx');
 require('./input.scss');
 require('./row.scss');
 
-var Input = React.createClass({
-    type: 'Input',
-    getDefaultProps: function () {
-        return {};
-    },
-    getInitialState: function () {
-        return {
+class Input extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
             status: ''
         };
-    },
-    onValid: function () {
-        this.setState({
-            status: 'pass'
-        });
-    },
-    onInvalid: function () {
+    }
+    handleInvalid () {
         this.setState({
             status: 'fail'
         });
-    },
-    render: function () {
+    }
+    handleValid () {
+        this.setState({
+            status: 'pass'
+        });
+    }
+    render () {
         var classes = classNames(
             this.state.status,
             this.props.className,
             {'no-label': (typeof this.props.label === 'undefined')}
         );
         return (
-            <FRCInput {... this.props}
+            <FRCInput
+                {... this.props}
                 className="input"
                 rowClassName={classes}
-                onValid={this.onValid}
-                onInvalid={this.onInvalid}
+                onInvalid={this.handleInvalid}
+                onValid={this.handleValid}
             />
         );
     }
-});
-
+}
+Input.propTypes = {
+    className: React.PropTypes.string,
+    label: React.PropTypes.node
+};
 module.exports = inputHOC(defaultValidationHOC(Input));

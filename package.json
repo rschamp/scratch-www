@@ -42,7 +42,7 @@
     "copy-webpack-plugin": "0.2.0",
     "css-loader": "0.23.1",
     "eslint": "3.9.1",
-    "eslint-config-scratch": "2.0.3",
+    "eslint-config-scratch": "^3",
     "eslint-plugin-json": "1.2.0",
     "eslint-plugin-react": "6.5.0",
     "exenv": "1.2.0",

@@ -8,40 +8,45 @@ for (var validation in validations) {
     Formsy.addValidationRule(validation, validations[validation]);
 }
 
-var Form = React.createClass({
-    getDefaultProps: function () {
-        return {
-            noValidate: true,
-            onChange: function () {}
-        };
-    },
-    getInitialState: function () {
-        return {
+class Form extends React.Component {
+    static propTypes = {
+        children: React.PropTypes.node,
+        className: React.PropTypes.string,
+        onChange: React.PropTypes.func
+    }
+    static defaultProps = {
+        noValidate: true,
+        onChange: function () {}
+    }
+    constructor (props) {
+        super(props);
+        this.state = {
             allValues: {}
         };
-    },
-    onChange: function (currentValues, isChanged) {
+    }
+    handleChange (currentValues, isChanged) {
         this.setState({allValues: omit(currentValues, 'all')});
         this.props.onChange(currentValues, isChanged);
-    },
-    render: function () {
+    }
+    render () {
         var classes = classNames(
             'form',
             this.props.className
         );
         return (
-            <Formsy.Form {... this.props} className={classes} ref="formsy" onChange={this.onChange}>
+            <Formsy.Form
+                {... this.props}
+                className={classes}
+                ref="formsy"
+                onChange={this.handleChange}
+            >
                 {React.Children.map(this.props.children, function (child) {
                     if (!child) return child;
-                    if (child.props.name === 'all') {
-                        return React.cloneElement(child, {value: this.state.allValues});
-                    } else {
-                        return child;
-                    }
+                    if (child.props.name === 'all') return React.cloneElement(child, {value: this.state.allValues});
+                    return child;
                 }.bind(this))}
             </Formsy.Form>
         );
     }
-});
-
+}
 module.exports = Form;

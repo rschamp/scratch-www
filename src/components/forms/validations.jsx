@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 var defaults = require('lodash.defaultsdeep');
 var libphonenumber = require('google-libphonenumber');
 var phoneNumberUtil = libphonenumber.PhoneNumberUtil.getInstance();
@@ -17,28 +18,32 @@ module.exports.validations = {
         if (value && value.national_number === '+') return true;
         try {
             var parsed = phoneNumberUtil.parse(value.national_number, value.country_code.iso2);
+            return phoneNumberUtil.isValidNumber(parsed);
         } catch (err) {
             return false;
         }
-        return phoneNumberUtil.isValidNumber(parsed);
     }
 };
 module.exports.validations.notEqualsUsername = module.exports.validations.notEquals;
 
 module.exports.validationHOCFactory = function (defaultValidationErrors) {
     return function (Component) {
-        var ValidatedComponent = React.createClass({
-            render: function () {
-                var validationErrors = defaults(
-                    {},
-                    defaultValidationErrors,
-                    this.props.validationErrors
-                );
-                return (
-                    <Component {...this.props} validationErrors={validationErrors} />
-                );
-            }
-        });
+        var ValidatedComponent = function (props) {
+            var validationErrors = defaults(
+                {},
+                defaultValidationErrors,
+                props.validationErrors
+            );
+            return (
+                <Component
+                    {...props}
+                    validationErrors={validationErrors}
+                />
+            );
+        };
+        ValidatedComponent.propTypes = {
+            validationErrors: React.PropTypes.object
+        };
         return ValidatedComponent;
     };
 };

@@ -2,15 +2,14 @@ var React = require('react');
 
 require('./footer.scss');
 
-var FooterBox = React.createClass({
-    type: 'FooterBox',
-    render: function () {
-        return (
-            <div className="inner">
-                {this.props.children}
-            </div>
-        );
-    }
-});
-
+var FooterBox = function (props) {
+    return (
+        <div className="inner">
+            {props.children}
+        </div>
+    );
+};
+FooterBox.propTypes = {
+    children: React.PropTypes.node
+};
 module.exports = FooterBox;

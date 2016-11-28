@@ -7,20 +7,20 @@ var inputHOC = require('./input-hoc.jsx');
 require('./row.scss');
 require('./textarea.scss');
 
-var TextArea = React.createClass({
-    type: 'TextArea',
-    render: function () {
-        var classes = classNames(
-            'textarea-row',
-            this.props.className
-        );
-        return (
-            <FRCTextarea {... this.props}
-                className="textarea"
-                rowClassName={classes}
-            />
-        );
-    }
-});
-
+var TextArea = function (props) {
+    var classes = classNames(
+        'textarea-row',
+        props.className
+    );
+    return (
+        <FRCTextarea
+            {... props}
+            className="textarea"
+            rowClassName={classes}
+        />
+    );
+};
+TextArea.propTypes = {
+    className: React.PropTypes.string
+};
 module.exports = inputHOC(defaultValidationHOC(TextArea));

@@ -18,7 +18,9 @@ var Helpers = {};
  */
 Helpers.getMD5 = function (string) {
     var cleanedString = string.replace(/\s+/g, '');
-    return crypto.createHash('md5').update(cleanedString, 'utf8').digest('hex');
+    return crypto.createHash('md5')
+        .update(cleanedString, 'utf8')
+        .digest('hex');
 };
 
 /**
@@ -49,6 +51,8 @@ Helpers.mergeNewTranslations = function (existingTranslations, newTranslations, 
     for (var id in newTranslations) {
         var md5 = Helpers.getMD5(id);
         if (md5Map.hasOwnProperty(md5) && newTranslations[id].length > 0) {
+            // TODO: Is this doing what we expect? Looks like a valid complaint
+            // eslint-disable-next-line no-loop-func
             md5Map[md5].forEach(function (msgId) {
                 existingTranslations[msgId] = newTranslations[id];
             });
@@ -70,9 +74,8 @@ Helpers.mergeNewTranslations = function (existingTranslations, newTranslations, 
  *
  * The md5 is generated after all white space is removed from the string.
  *
- * @param   {object}    idICUMap    map where key=icuString, value=react-intl id
- *
- * @return  {object}
+ * @param   {object}    ICUIdMap    map where key=icuString, value=react-intl id
+ * @return  {object}    map where key=icuString hash, value=react-intl id
  */
 Helpers.getMD5Map = function (ICUIdMap) {
     var md5Map = {};
@@ -85,11 +88,12 @@ Helpers.getMD5Map = function (ICUIdMap) {
 
 /**
  * Grabs the translated strings from the po files for the given language and strings
- * @param  {str}    lang       iso code of the language to use
+ * @param  {string}    lang       iso code of the language to use
  * @param  {object} idsWithICU key: '<viewName>-<react-intl string id>'.
  *                             value: english strings for translation
  * @param  {object} md5WithIds key: md5 hash of the english strings for translation.
  *                             value: '<viewName>-<react-intl string id>'
+ * @param  {string} separator  character that separates the view name from the react-intl string id
  * @return {object}            translations – sub-objects by view containing:
  *                                          key: '<react-intl string id>'
  *                                          value: translated version of string

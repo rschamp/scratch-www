@@ -18,8 +18,17 @@ var allIso2 = allCountries.map(function (country) {
 require('./row.scss');
 require('./phone-input.scss');
 
-var PhoneInput = React.createClass({
+// @todo Switch to Formsy HOC and Component HOC (if possible) and then update
+// to ES6-style class
+var PhoneInput = React.createClass({ // eslint-disable-line react/prefer-es6-class
     displayName: 'PhoneInput',
+    propTypes: {
+        className: React.PropTypes.string,
+        disabled: React.PropTypes.bool,
+        defaultCountry: React.PropTypes.string,
+        name: React.PropTypes.string,
+        onChange: React.PropTypes.func
+    },
     mixins: [
         FormsyMixin,
         ComponentMixin
@@ -33,7 +42,7 @@ var PhoneInput = React.createClass({
             defaultCountry: 'us'
         };
     },
-    onChangeInput: function (number, country) {
+    handleChangeInput: function (number, country) {
         var value = {national_number: number, country_code: country};
         this.setValue(value);
         this.props.onChange(this.props.name, value);
@@ -44,18 +53,20 @@ var PhoneInput = React.createClass({
             defaultCountry = this.props.defaultCountry.toLowerCase();
         }
         return (
-            <Row {... this.getRowProperties()}
+            <Row
+                {... this.getRowProperties()}
                 htmlFor={this.getId()}
                 rowClassName={classNames('phone-input', this.props.className)}
             >
                 <div className="input-group">
-                    <ReactPhoneInput className="form-control"
+                    <ReactPhoneInput
+                        className="form-control"
                         {... this.props}
                         defaultCountry={defaultCountry}
-                        onChange={this.onChangeInput}
+                        disabled={this.isFormDisabled() || this.props.disabled}
                         id={this.getId()}
                         label={null}
-                        disabled={this.isFormDisabled() || this.props.disabled}
+                        onChange={this.handleChangeInput}
                     />
                     {this.renderHelp()}
                     {this.renderErrorMessage()}

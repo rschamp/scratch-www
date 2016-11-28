@@ -3,7 +3,7 @@ var defaults = require('lodash.defaults');
 var glob = require('glob');
 var path = require('path');
 
-var route_json = require('../src/routes.json');
+var routeJson = require('../src/routes.json');
 
 const FASTLY_SERVICE_ID = process.env.FASTLY_SERVICE_ID || '';
 const S3_BUCKET_NAME = process.env.S3_BUCKET_NAME || '';
@@ -20,7 +20,7 @@ var extraAppRoutes = [
     // TODO: Should this be added for every route?
     '/\\?',
     // View html
-    '/[^\/]*\.html$'
+    '/[^\/]*\.html$' // eslint-disable-line no-useless-escape
 ];
 
 /*
@@ -45,9 +45,9 @@ var getStaticPaths = function (pathToStatic) {
  */
 var getViewPaths = function (routes) {
     return routes.reduce(function (paths, route) {
-        var path = route.routeAlias || route.pattern;
-        if (paths.indexOf(path) === -1) {
-            paths.push(path);
+        var searchPath = route.routeAlias || route.pattern;
+        if (paths.indexOf(searchPath) === -1) {
+            paths.push(searchPath);
         }
         return paths;
     }, []);
@@ -102,7 +102,7 @@ var getResponseNameForRoute = function (route) {
     return 'redirects/' + route.pattern;
 };
 
-var routes = route_json.map(function (route) {
+var routes = routeJson.map(function (route) {
     return defaults({}, {pattern: expressPatternToRegex(route.pattern)}, route);
 });
 
@@ -112,9 +112,9 @@ async.auto({
             if (err) return cb(err);
             // Validate latest version before continuing
             if (response.active || response.locked) {
-                fastly.cloneVersion(response.number, function (err, response) {
-                    if (err) return cb('Failed to clone latest version: ' + err);
-                    cb(null, response.number);
+                fastly.cloneVersion(response.number, function (cvErr, cvResponse) {
+                    if (cvErr) return cb('Failed to clone latest version: ' + cvErr);
+                    cb(null, cvResponse.number);
                 });
             } else {
                 cb(null, response.number);
@@ -271,11 +271,11 @@ async.auto({
     function (err, results) {
         if (err) throw new Error(err);
         if (process.env.FASTLY_ACTIVATE_CHANGES) {
-            fastly.activateVersion(results.version, function (err, response) {
-                if (err) throw new Error(err);
+            fastly.activateVersion(results.version, function (avErr, response) {
+                if (avErr) throw new Error(avErr);
                 process.stdout.write('Successfully configured and activated version ' + response.number + '\n');
-                fastly.purgeAll(FASTLY_SERVICE_ID, function (err) {
-                    if (err) throw new Error(err);
+                fastly.purgeAll(FASTLY_SERVICE_ID, function (pErr) {
+                    if (pErr) throw new Error(pErr);
                     process.stdout.write('Purged all.\n');
                 });
             });
