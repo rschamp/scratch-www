@@ -43,6 +43,7 @@ class Preview extends React.Component {
             'handleReportSubmit',
             'handleAddToStudioClick',
             'handleAddToStudioClose',
+            'handleMessage',
             'handleSeeInside',
             'handleUpdateProjectTitle',
             'handleUpdate',
@@ -57,6 +58,7 @@ class Preview extends React.Component {
         // parts[1]: either :id or 'editor'
         // parts[2]: undefined if no :id, otherwise either 'editor' or 'fullscreen'
         this.state = {
+            adminModalOpen: false,
             extensions: [],
             favoriteCount: 0,
             loveCount: 0,
@@ -65,9 +67,11 @@ class Preview extends React.Component {
             reportOpen: false
         };
         this.getExtensions(this.state.projectId);
-        this.addEventListeners();
         /* In the beginning, if user is on mobile and landscape, go to fullscreen */
         this.setScreenFromOrientation();
+    }
+    componentDidMount () {
+        this.addEventListeners();
     }
     componentDidUpdate (prevProps) {
         if (this.props.sessionStatus !== prevProps.sessionStatus &&
@@ -112,10 +116,12 @@ class Preview extends React.Component {
     addEventListeners () {
         window.addEventListener('popstate', this.handlePopState);
         window.addEventListener('orientationchange', this.setScreenFromOrientation);
+        window.addEventListener('message', this.handleMessage);
     }
     removeEventListeners () {
         window.removeEventListener('popstate', this.handlePopState);
         window.removeEventListener('orientationchange', this.setScreenFromOrientation);
+        window.removeEventListener('message', this.handleMessage);
     }
     setScreenFromOrientation () {
         /*
@@ -163,6 +169,18 @@ class Preview extends React.Component {
                     });
                 });
             });
+    }
+    handleMessage (messageEvent) {
+        if (messageEvent.data === 'showDialog') {
+            this.setState({
+                adminModalOpen: true
+            });
+        }
+        if (messageEvent.data === 'hideDialog') {
+            this.setState({
+                adminModalOpen: false
+            });
+        }
     }
     handleReportClick () {
         this.setState({reportOpen: true});
@@ -313,6 +331,7 @@ class Preview extends React.Component {
                 <Page>
                     <PreviewPresentation
                         addToStudioOpen={this.state.addToStudioOpen}
+                        adminModalOpen={this.state.adminModalOpen}
                         assetHost={this.props.assetHost}
                         backpackOptions={this.props.backpackOptions}
                         comments={this.props.comments}

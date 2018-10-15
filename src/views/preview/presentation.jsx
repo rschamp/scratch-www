@@ -52,6 +52,7 @@ const PreviewPresentation = ({
     isShared,
     loved,
     loveCount,
+    adminModalOpen,
     originalInfo,
     parentInfo,
     projectHost,
@@ -78,6 +79,12 @@ const PreviewPresentation = ({
 }) => (
     <div className="preview">
         <ShareBanner shared={isShared} />
+        <iframe
+            className={classNames('admin-panel', {
+                'modal-open': adminModalOpen
+            })}
+            src={`/projects/${projectId}`}
+        />
         { projectInfo && projectInfo.author && projectInfo.author.id && (
             <Formsy onKeyPress={onKeyPress}>
                 <div className="inner">
