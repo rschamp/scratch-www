@@ -1,0 +1,134 @@
+@import "colors";
+@import "typography";
+
+.scratch-h1,
+.scratch-h2,
+.scratch-h3,
+.scratch-h4,
+.scratch-h5,
+.scratch-p {
+    line-height: 1.7em;
+    color: $type-gray;
+}
+
+.scratch-h1,
+.scratch-h2,
+.scratch-h3,
+.scratch-h4 {
+    margin: 0;
+    border: 0;
+    padding: 0;
+
+    color: $header-gray;
+    font-weight: bold;
+}
+
+.scratch-h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.scratch-h2 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.scratch-h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.scratch-h4 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.scratch-h5 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: .85rem;
+    font-weight: bold;
+}
+
+.scratch-p {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.scratch-p.legal {
+    font-size: .8rem;
+}
+
+.scratch-p.intro {
+    font-size: 1.1rem;
+}
+
+.scratch-p.callout {
+    margin: 1.5em 0;
+    border: 1px solid $active-gray;
+    border-radius: .5rem;
+    background-color: $ui-blue-10percent;
+    padding: 1.25em;
+}
+
+.scratch-p.callout.orange {
+    background-color: $ui-orange-10percent;
+}
+
+.scratch-p a {
+    white-space: nowrap;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+/* Links */
+.scratch-a {
+    cursor: pointer;
+    color: $ui-blue;
+    font-weight: bold;
+
+.scratch-a:link,
+.scratch-a:visited,
+.scratch-a:active {
+    text-decoration: none;
+    color: $link-blue;
+}
+
+.scratch-a:hover {
+    text-decoration: none;
+    color: $ui-blue-dark;
+}
+
+::selection {
+    background-color: $ui-blue-25percent;
+}
+
+.scratch-ol,
+.scratch-ul {
+    padding-left: 20px;
+
+    line-height: 1.5em;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.scratch-li {
+    margin: .75em 0;
+}
+
+.scratch-dl {
+    line-height: 1.5rem;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.scratch-dt {
+    font-weight: bold;
+}
+
+.scratch-dd {
+    margin: 0;
+}

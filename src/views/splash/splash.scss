@@ -47,6 +47,22 @@
     }
 }
 
+.empty {
+    margin-top: 20px;
+    border: 1px solid $active-gray;
+    border-radius: 5px;
+    background-color: $ui-blue-10percent;
+    padding: 10px;
+    text-align: center;
+    line-height: 2rem;
+    color: $type-gray;
+
+    h4 {
+        color: $type-gray;
+    }
+}
+
+
 .modal-content.mod-confirmation {
     width: 31.25rem;
 }
